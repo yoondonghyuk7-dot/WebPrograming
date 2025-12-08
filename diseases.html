@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감염병 정보 상세</title>
+    <link rel="stylesheet" href="styles/diseases.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.location.href='index.html'">← 뒤로가기</button>
+            <h1>감염병 정보</h1>
+        </header>
+
+        <!-- 간단한 설명 -->
+        <section class="description-section">
+            <p>이 페이지에서는 다양한 감염병에 대한 상세 정보를 확인할 수 있습니다. 검색 기능을 사용하여 원하는 감염병을 찾거나, 카드를 클릭하여 상세 정보를 확인하세요.</p>
+        </section>
+
+        <!-- 검색 기능 -->
+        <section class="search-section">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="감염병을 검색하세요" onkeyup="filterDiseases()">
+            </div>
+        </section>
+
+        <!-- 감염병 카드 목록 -->
+        <section class="diseases-list">
+            <div id="diseasesContainer" class="diseases-grid">
+                <!-- 카드들이 여기에 동적으로 생성됩니다 -->
+            </div>
+            <button id="showMoreBtn" class="show-more-btn" onclick="showAllDiseases()">
+                더보기 (11개 더)
+            </button>
+        </section>
+    </div>
+
+    <!-- 상세 정보 모달 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <!-- 상세 정보가 여기에 표시됩니다 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/diseases.js"></script>
+</body>
+</html>
+
