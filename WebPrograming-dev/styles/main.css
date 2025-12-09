@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Noto Sans KR", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -16,24 +16,11 @@ body {
 /* 헤더 표지 섹션 */
 .header-section {
     position: relative;
-    background: #0a1628; /* 다크 블루 기본 배경 (이미지 로딩 전) */
-    background-image: url('../images/3895837.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(to right, #2563eb, #4f46e5, #9333ea);
     overflow: hidden;
     padding: 60px 20px;
     text-align: center;
     color: white;
-}
-
-/* 배경 이미지 위에 오버레이 추가 (텍스트 가독성 향상) */
-.header-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 22, 40, 0.5); /* 반투명 다크 블루 오버레이 */
-    z-index: 0;
 }
 
 /* 배경 패턴 */
@@ -42,7 +29,6 @@ body {
     inset: 0;
     opacity: 0.1;
     overflow: hidden;
-    z-index: 0; /* 이미지 위에 표시 */
 }
 
 .pattern-blob {
@@ -71,14 +57,11 @@ body {
     position: relative;
     max-width: 1280px;
     margin: 0 auto;
-    z-index: 1; /* 오버레이 위에 텍스트 표시 */
 }
 
 /* 타이틀 섹션 */
 .header-title-section {
     margin-bottom: 32px;
-    position: relative;
-    z-index: 1; /* 텍스트가 배경 위에 오도록 */
 }
 
 .header-title {
@@ -101,8 +84,6 @@ body {
 .header-search-wrapper {
     max-width: 100%;
     margin: 0 auto;
-    position: relative;
-    z-index: 1; /* 검색창이 배경 위에 오도록 */
 }
 
 .search-form {
@@ -131,7 +112,7 @@ body {
     border: none;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
     color: #1f2937;
     outline: none;
@@ -159,7 +140,7 @@ body {
     border-radius: 12px;
     font-size: 1rem;
     font-weight: 600;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -198,7 +179,7 @@ body {
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(4px);
@@ -225,7 +206,6 @@ body {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.875rem;
     backdrop-filter: blur(4px);
-    z-index: 1; /* 배너가 배경 위에 오도록 */
 }
 
 .info-icon {
@@ -284,40 +264,6 @@ section {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-/* 클릭 가능한 섹션 스타일 */
-.clickable-section {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.clickable-section:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: #4285f4;
-}
-
-.clickable-section:active {
-    transform: scale(0.98);
-}
-
-.clickable-section::after {
-    content: '→';
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    font-size: 1.5em;
-    color: #4285f4;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateX(-10px);
-}
-
-.clickable-section:hover::after {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 section h2 {
@@ -438,15 +384,18 @@ section h2 {
 }
 
 .disease-card.grade1 .disease-icon {
-    filter: brightness(0) saturate(100%) invert(23%) sepia(100%) saturate(4000%) hue-rotate(359deg);
+    filter: brightness(0) saturate(100%) invert(23%) sepia(100%) saturate(4000%)
+        hue-rotate(359deg);
 }
 
 .disease-card.grade2 .disease-icon {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(100%) saturate(1200%) hue-rotate(9deg);
+    filter: brightness(0) saturate(100%) invert(56%) sepia(100%) saturate(1200%)
+        hue-rotate(9deg);
 }
 
 .disease-card.grade3 .disease-icon {
-    filter: brightness(0) saturate(100%) invert(54%) sepia(100%) saturate(800%) hue-rotate(82deg);
+    filter: brightness(0) saturate(100%) invert(54%) sepia(100%) saturate(800%)
+        hue-rotate(82deg);
 }
 
 .disease-card:hover .disease-icon {
@@ -542,30 +491,22 @@ section h2 {
     margin-bottom: 25px;
 }
 
-#kakao-map {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-}
-
 .map-placeholder {
     width: 100%;
     height: 100%;
     position: relative;
     background: #fafafa;
-    background-image: 
-        linear-gradient(90deg, #e0e0e0 1px, transparent 1px),
+    background-image: linear-gradient(90deg, #e0e0e0 1px, transparent 1px),
         linear-gradient(#e0e0e0 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
 .map-placeholder::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at 20% 30%, #c8e6c9 2px, transparent 2px),
+    background: radial-gradient(circle at 20% 30%, #c8e6c9 2px, transparent 2px),
         radial-gradient(circle at 60% 50%, #c8e6c9 2px, transparent 2px),
         radial-gradient(circle at 80% 70%, #c8e6c9 2px, transparent 2px),
         radial-gradient(circle at 30% 80%, #c8e6c9 2px, transparent 2px),
@@ -621,13 +562,34 @@ section h2 {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
-.hospital-marker:nth-child(1) { top: 15%; left: 20%; }
-.hospital-marker:nth-child(2) { top: 25%; right: 25%; }
-.hospital-marker:nth-child(3) { top: 45%; left: 15%; }
-.hospital-marker:nth-child(4) { bottom: 30%; right: 20%; }
-.hospital-marker:nth-child(5) { top: 60%; left: 55%; }
-.hospital-marker:nth-child(6) { bottom: 20%; left: 40%; }
-.hospital-marker:nth-child(7) { top: 35%; left: 70%; }
+.hospital-marker:nth-child(1) {
+    top: 15%;
+    left: 20%;
+}
+.hospital-marker:nth-child(2) {
+    top: 25%;
+    right: 25%;
+}
+.hospital-marker:nth-child(3) {
+    top: 45%;
+    left: 15%;
+}
+.hospital-marker:nth-child(4) {
+    bottom: 30%;
+    right: 20%;
+}
+.hospital-marker:nth-child(5) {
+    top: 60%;
+    left: 55%;
+}
+.hospital-marker:nth-child(6) {
+    bottom: 20%;
+    left: 40%;
+}
+.hospital-marker:nth-child(7) {
+    top: 35%;
+    left: 70%;
+}
 
 /* 통계 섹션 - 오른쪽 컬럼에 배치 */
 .statistics-section {
@@ -671,19 +633,55 @@ section h2 {
     display: inline-block;
 }
 
-.legend-color.blue { background: #4285f4; }
-.legend-color.green { background: #34a853; }
-.legend-color.pink { background: #ea4335; }
-.legend-color.light-green { background: #fbbc04; }
-.legend-color.orange { background: #ff9800; }
+.legend-color.blue {
+    background: #4285f4;
+}
+.legend-color.green {
+    background: #34a853;
+}
+.legend-color.pink {
+    background: #ea4335;
+}
+.legend-color.light-green {
+    background: #fbbc04;
+}
+.legend-color.orange {
+    background: #ff9800;
+}
 
+.view-all-btn {
+    width: 100%;
+    background: #e3f2fd;
+    color: #1976d2;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.view-all-btn:hover {
+    background: #bbdefb;
+}
+
+.view-all-btn::after {
+    content: ">";
+    font-size: 1em;
+}
 
 /* 반응형 디자인 */
 @media (max-width: 1024px) {
     .main-content {
         grid-template-columns: 1fr;
     }
-    
+
     .disease-cards {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -693,7 +691,7 @@ section h2 {
     .main-content {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .statistics-section {
         grid-column: 1 / -1;
     }
@@ -703,9 +701,36 @@ section h2 {
     .disease-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .statistics-content {
         flex-direction: column;
     }
 }
 
+/* main.css 파일의 하단 또는 해당 섹션 스타일 부분에 추가/수정 */
+
+/* 1. 의료기관 섹션 전체를 수직 Flex 컨테이너로 설정 */
+.hospitals-section {
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로로 정렬 */
+    height: 100%; /* 부모 그리드 셀의 높이를 꽉 채우도록 보장 */
+}
+
+/* 2. 지도 컨테이너가 버튼과 제목을 제외한 남은 모든 수직 공간을 차지하도록 설정 */
+.hospitals-section .map-container {
+    flex-grow: 1; /* 🚨 남은 공간을 모두 차지하여 확장 */
+    min-height: 200px; /* 지도가 너무 작아지는 것을 방지 */
+    margin-bottom: 15px; /* 버튼과의 간격 유지 */
+}
+
+/* 3. 미니맵 Div가 컨테이너의 높이를 꽉 채우도록 설정 */
+#miniMap {
+    width: 100%;
+    height: 100%; /* 🚨 map-container의 높이를 꽉 채움 */
+    border-radius: 8px;
+}
+
+/* 4. (선택적) 버튼을 섹션의 가장 아래에 고정 */
+.hospitals-section .view-all-btn {
+    margin-top: auto; /* 버튼을 섹션 맨 아래로 밀어냄 */
+}

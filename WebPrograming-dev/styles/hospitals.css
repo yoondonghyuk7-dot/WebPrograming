@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -115,7 +115,7 @@ header h1 {
 }
 
 .legend-marker.current-location::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -145,3 +145,41 @@ header h1 {
     }
 }
 
+/* hospitals.css 파일에 추가 */
+
+/* 카카오맵 컨트롤 컨테이너 클래스 (TOPRIGHT 위치 조정) */
+/* 1. 지도/스카이뷰 전환 컨트롤 (MapTypeControl) - 가장 위 */
+.kakao_maps_sdk div[class^="MapTypeControl"] {
+    top: 10px !important;
+    right: 10px !important;
+}
+
+/* 2. 확대/축소 컨트롤 (ZoomControl) - 두 번째 */
+.kakao_maps_sdk div[class^="ZoomControl"] {
+    /* 🚨 불필요한 top 속성 제거. RIGHT 위치는 API가 처리함. */
+    /* top: 45px !important; <- 이 부분을 제거합니다. */
+    right: 10px !important;
+}
+
+/* 3. 커스텀 현위치 버튼 - 가장 아래 */
+.custom-current-location-control {
+    /* 기본 스타일 유지 */
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    line-height: 36px;
+    font-size: 18px;
+    z-index: 50;
+
+    /* 🚨 top 속성 제거. RIGHT 위치는 API가 처리함. */
+    /* top: 140px !important; <- 이 부분을 제거합니다. */
+    right: 10px !important;
+
+    /* margin-top은 JS 인라인 스타일로 5px을 이미 주었습니다. (hospitals.js 참조) */
+    margin-top: 0 !important; /* CSS에서는 추가 마진을 주지 않습니다. */
+}
