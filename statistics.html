@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세 통계</title>
+    <link rel="stylesheet" href="styles/statistics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.location.href='index.html'">← 뒤로가기</button>
+            <h1>상세 통계</h1>
+        </header>
+
+        <section class="description-section">
+            <p>감염병, 지역별, 성별 데이터를 토글하여 다양한 통계 정보를 시각적으로 확인할 수 있습니다.</p>
+        </section>
+
+        <!-- 토글 버튼 -->
+        <section class="toggle-section">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" data-view="disease" onclick="switchView('disease')">감염병별</button>
+                <button class="toggle-btn" data-view="region" onclick="switchView('region')">지역별</button>
+                <button class="toggle-btn" data-view="gender" onclick="switchView('gender')">성별</button>
+            </div>
+        </section>
+
+        <!-- 차트 섹션 -->
+        <section class="chart-section">
+            <div id="diseaseView" class="chart-view active">
+                <h2>감염병별 통계</h2>
+                <div class="chart-container">
+                    <canvas id="diseaseChart"></canvas>
+                </div>
+            </div>
+
+            <div id="regionView" class="chart-view">
+                <h2>지역별 통계</h2>
+                <div class="chart-container">
+                    <canvas id="regionChart"></canvas>
+                </div>
+            </div>
+
+            <div id="genderView" class="chart-view">
+                <h2>성별 통계</h2>
+                <div class="chart-container">
+                    <canvas id="genderChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts/ttlParser.js"></script>
+    <script src="scripts/statistics.js"></script>
+</body>
+</html>
+
