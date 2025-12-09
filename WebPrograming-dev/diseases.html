@@ -29,13 +29,19 @@
             </div>
         </section>
 
+        <!-- 로딩 인디케이터 -->
+        <div id="loadingIndicator" style="display: none; text-align: center; padding: 40px;">
+            <div style="font-size: 24px;">⏳ 로딩 중...</div>
+            <p>감염병 정보를 불러오고 있습니다.</p>
+        </div>
+
         <!-- 감염병 카드 목록 -->
         <section class="diseases-list">
             <div id="diseasesContainer" class="diseases-grid">
                 <!-- 카드들이 여기에 동적으로 생성됩니다 -->
             </div>
-            <button id="showMoreBtn" class="show-more-btn" onclick="showAllDiseases()">
-                더보기 (11개 더)
+            <button id="showMoreBtn" class="show-more-btn hidden" onclick="showAllDiseases()">
+                더보기
             </button>
         </section>
     </div>
