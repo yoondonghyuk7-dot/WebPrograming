@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감염병 정보 시스템</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_APP_KEY"></script>
+</head>
+<body>
+    <!-- 표지 섹션 -->
+    <header class="header-section">
+        <!-- 배경 패턴 -->
+        <div class="header-pattern">
+            <div class="pattern-blob pattern-blob-1"></div>
+            <div class="pattern-blob pattern-blob-2"></div>
+        </div>
+
+        <div class="header-wrapper">
+            <!-- 메인 타이틀 -->
+            <div class="header-title-section">
+                <h1 class="header-title">감염병 통합 정보 플랫폼</h1>
+                <p class="header-subtitle">국내 감염병 현황을 한 곳에서 확인하세요</p>
+            </div>
+
+            <!-- 검색창 -->
+            <div class="header-search-wrapper">
+                <form class="search-form" id="searchForm">
+                    <div class="search-input-group">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" class="search-input" id="searchInput" placeholder="감염병을 검색하세요...">
+                        <button type="submit" class="search-btn">검색</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 하단 정보 메시지 -->
+        <div class="header-info-banner">
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span class="info-text">거동 감염병 예방 위해 손 씻기, 마스크 착용 등 기본 위생 수칙을 준수해주세요.</span>
+            <button class="info-close-btn" id="infoCloseBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <!-- 왼쪽: 감염병 섹션 -->
+            <section class="diseases-section clickable-section" data-link="diseases.html">
+                <h2>감염병</h2>
+                <div class="disease-cards">
+                    <div class="disease-card grade1" data-disease="covid19">
+                        <div class="disease-icon">🦠</div>
+                        <div class="grade-badge">1급</div>
+                        <h3>코로나19</h3>
+                        <p>코로나바이러스감염증-19는 SARS-CoV-2 바이러스에 의해 발생하는 호흡기 감염병입니다.</p>
+                    </div>
+                    <div class="disease-card grade2" data-disease="special-flu">
+                        <div class="disease-icon">🦠</div>
+                        <div class="grade-badge">2급</div>
+                        <h3>특감</h3>
+                        <p>특정감염병은 법정감염병 중 특별한 관리가 필요한 감염병입니다.</p>
+                    </div>
+                    <div class="disease-card grade3" data-disease="typhoid">
+                        <div class="disease-icon">🦠</div>
+                        <div class="grade-badge">3급</div>
+                        <h3>장티푸스</h3>
+                        <p>장티푸스는 살모넬라균에 의해 발생하는 전신성 감염병입니다.</p>
+                    </div>
+                    <div class="disease-card grade1" data-disease="cholera">
+                        <div class="disease-icon">🦠</div>
+                        <div class="grade-badge">1급</div>
+                        <h3>콜레라</h3>
+                        <p>콜레라는 비브리오 콜레라균에 의해 발생하는 급성 장관 감염병입니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 중앙: 의료기관 섹션 -->
+            <section class="hospitals-section clickable-section" data-link="hospitals.html">
+                <h2>의료기관</h2>
+                <div class="map-container">
+                    <div id="kakao-map" style="width:100%;height:100%;"></div>
+                </div>
+            </section>
+
+            <!-- 오른쪽: 통계 섹션 -->
+            <section class="statistics-section clickable-section" data-link="statistics.html">
+                <h2>통계</h2>
+                <div class="statistics-content">
+                    <div class="donut-chart-container">
+                        <canvas id="donutChart" width="300" height="300"></canvas>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color blue"></span>
+                            <span>코로나19</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color green"></span>
+                            <span>특감</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color pink"></span>
+                            <span>장티푸스</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color light-green"></span>
+                            <span>콜레라</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color orange"></span>
+                            <span>기타</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+

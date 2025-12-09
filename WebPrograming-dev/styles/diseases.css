@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    position: relative;
+    background: #0a1628;
+    background-image: url('../images/3895837.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.6);
+    z-index: 0;
+}
+
+header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+header h1 {
+    font-size: 2.5em;
+    flex: 1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.description-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+}
+
+.description-section p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.8;
+}
+
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+    border-color: #2563eb;
+}
+
+.search-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #2563eb;
+}
+
+#searchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#searchInput::placeholder {
+    color: #9ca3af;
+}
+
+.diseases-list {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+}
+
+.diseases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.disease-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.disease-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.disease-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #2563eb;
+}
+
+.disease-card:hover::before {
+    background: #2563eb;
+}
+
+.disease-card.grade1::before {
+    background: #ff0000;
+}
+
+.disease-card.grade2::before {
+    background: #ff9800;
+}
+
+.disease-card.grade3::before {
+    background: #4caf50;
+}
+
+.disease-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.grade-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.grade-badge.grade1 {
+    background: #ffebee;
+    color: #ff0000;
+}
+
+.grade-badge.grade2 {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.grade-badge.grade3 {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.grade-badge.grade1-badge {
+    background: #ffebee;
+    color: #ff0000;
+}
+
+.grade-badge.grade2-badge {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.grade-badge.grade3-badge {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.disease-name-ko {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.disease-description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.more-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.more-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.more-btn.grade1-btn {
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(255, 68, 68, 0.3);
+}
+
+.more-btn.grade1-btn:hover {
+    background: linear-gradient(135deg, #ff0000 0%, #aa0000 100%);
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.5);
+}
+
+.more-btn.grade2-btn {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(255, 152, 0, 0.3);
+}
+
+.more-btn.grade2-btn:hover {
+    background: linear-gradient(135deg, #ff6f00 0%, #e65100 100%);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+}
+
+.more-btn.grade3-btn {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
+}
+
+.more-btn.grade3-btn:hover {
+    background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.show-more-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.show-more-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.show-more-btn.hidden {
+    display: none;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.modal-icon {
+    font-size: 4em;
+}
+
+.modal-title h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.modal-title p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+}
+
+.detail-section h3 {
+    font-size: 1.4em;
+    color: #2563eb;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2563eb;
+    font-weight: 600;
+}
+
+.detail-section p,
+.detail-section ul {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.detail-section ul {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+.detail-section li {
+    margin-bottom: 10px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.detail-item strong {
+    color: #2563eb;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.isolation-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.isolation-badge.yes {
+    background: #ffebee;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.isolation-badge.no {
+    background: #e8f5e9;
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.hospital-btn {
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.hospital-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 768px) {
+    .diseases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+}

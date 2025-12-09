@@ -1,0 +1,19 @@
+{
+  "name": "고급웹-최종",
+  "version": "1.0.0",
+  "description": "감염병 정보 시스템",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "감염병",
+    "의료기관",
+    "통계"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+

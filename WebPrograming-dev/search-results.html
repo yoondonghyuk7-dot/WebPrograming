@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과 - 감염병 정보 시스템</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/search-results.css">
+</head>
+<body>
+    <!-- 헤더 섹션 (메인 페이지와 유사) -->
+    <header class="header-section">
+        <div class="header-pattern">
+            <div class="pattern-blob pattern-blob-1"></div>
+            <div class="pattern-blob pattern-blob-2"></div>
+        </div>
+
+        <div class="header-wrapper">
+            <div class="header-title-section">
+                <button class="back-btn" onclick="window.location.href='index.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    메인으로
+                </button>
+                <h1 class="header-title">증상 검색 결과</h1>
+                <p class="header-subtitle">입력하신 증상을 분석하여 관련 질병을 추천합니다</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 검색어 표시 -->
+        <section class="search-query-section">
+            <div class="search-query-box">
+                <span class="query-label">검색어:</span>
+                <span class="query-text" id="searchQueryText"></span>
+            </div>
+        </section>
+
+        <!-- 로딩 상태 -->
+        <div class="loading" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <p>증상을 분석하고 질병을 추천하는 중...</p>
+        </div>
+
+        <!-- 1. 증상 키워드 분석 및 동의어 매핑 -->
+        <section class="analysis-section" id="analysisSection" style="display: none;">
+            <h2 class="section-title">
+                <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                증상 키워드 분석
+            </h2>
+            <div class="analysis-content">
+                <p class="analysis-description">입력하신 증상을 표준 의학 용어로 변환했습니다.</p>
+                <div class="keyword-tags" id="keywordTags">
+                    <!-- 동의어 매핑된 키워드 태그들이 여기에 표시됩니다 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 질병 추천 카드 리스트 -->
+        <section class="recommendations-section" id="recommendationsSection" style="display: none;">
+            <h2 class="section-title">
+                <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                추천 질병
+            </h2>
+            <div class="recommendations-content">
+                <p class="recommendations-description">분석된 증상과 가장 유사한 질병들을 우선순위대로 추천합니다.</p>
+                <div class="disease-cards-container" id="diseaseCardsContainer">
+                    <!-- 질병 추천 카드들이 여기에 표시됩니다 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 검색 결과 없음 -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <h3>검색 결과가 없습니다</h3>
+            <p>입력하신 증상과 관련된 질병을 찾을 수 없습니다.</p>
+            <button class="back-to-main-btn" onclick="window.location.href='index.html'">메인으로 돌아가기</button>
+        </div>
+    </div>
+
+    <!-- 상세 정보 모달 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <!-- 상세 정보가 여기에 표시됩니다 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/ttlParser.js"></script>
+    <script src="scripts/search-results.js"></script>
+</body>
+</html>
+

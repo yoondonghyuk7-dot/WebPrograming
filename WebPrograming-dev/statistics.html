@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세 통계</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/statistics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.location.href='index.html'">← 뒤로가기</button>
+            <h1>상세 통계</h1>
+        </header>
+
+        <section class="description-section">
+            <p>감염병을 선택하여 지역별, 성별 통계 정보를 시각적으로 확인할 수 있습니다.</p>
+        </section>
+
+        <!-- 토글 버튼 -->
+        <section class="toggle-section">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" data-view="disease" onclick="switchView('disease')">감염병별</button>
+                <button class="toggle-btn" data-view="gender" onclick="switchView('gender')">성별</button>
+            </div>
+        </section>
+
+        <!-- 감염병 선택 토글 -->
+        <section class="disease-selector-section">
+            <label for="diseaseSelect">감염병 선택:</label>
+            <select id="diseaseSelect" onchange="onDiseaseChange()">
+                <option value="">감염병을 선택하세요</option>
+                <option value="수두">수두</option>
+                <option value="장티푸스">장티푸스</option>
+                <option value="인플루엔자">인플루엔자</option>
+                <option value="결핵">결핵</option>
+                <option value="A형간염">A형간염</option>
+                <option value="B형간염">B형간염</option>
+                <option value="C형간염">C형간염</option>
+                <option value="콜레라">콜레라</option>
+                <option value="유행성 뇌수막염">유행성 뇌수막염</option>
+                <option value="일본뇌염">일본뇌염</option>
+                <!-- TTL 데이터에서 추가로 채워짐 -->
+            </select>
+        </section>
+
+        <!-- 차트 섹션 -->
+        <section class="chart-section">
+            <div id="diseaseView" class="chart-view active">
+                <h2 id="diseaseViewTitle">감염병별 통계</h2>
+                <div class="table-container">
+                    <table id="diseaseTable" class="statistics-table">
+                        <thead>
+                            <tr>
+                                <th>지역</th>
+                                <th>발생 건수</th>
+                                <th>발생률 (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diseaseTableBody">
+                            <!-- 동적으로 채워짐 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="genderView" class="chart-view">
+                <h2 id="genderViewTitle">성별 통계</h2>
+                <div class="table-container">
+                    <table id="genderTable" class="statistics-table">
+                        <thead>
+                            <tr>
+                                <th>성별</th>
+                                <th>인구</th>
+                                <th>발생 건수</th>
+                                <th>발생률 (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genderTableBody">
+                            <!-- 동적으로 채워짐 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts/ttlParser.js"></script>
+    <script src="scripts/statistics.js"></script>
+</body>
+</html>
+
