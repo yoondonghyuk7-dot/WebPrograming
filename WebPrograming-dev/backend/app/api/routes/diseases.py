@@ -1,8 +1,10 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, Depends, Query
+import logging
+
+from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.deps import get_graphdb_client
 from app.services.graphdb_client import GraphDBClient
@@ -29,24 +31,73 @@ def grade_to_type(grade: str | None) -> str:
 
 @router.get("", summary="List diseases for main cards")
 async def list_diseases(
-    limit: int = Query(4, ge=1, le=50, description="Number of diseases to return"),
+    limit: Optional[int] = Query(None, ge=1, le=5000, description="Number of diseases to return (omit for all)"),
+    offset: int = Query(0, ge=0, description="Pagination offset"),
     graphdb: GraphDBClient = Depends(get_graphdb_client),
 ):
+    # 넓은 타입 매칭 + 언어 필터 제거로 누락 방지
+    limit_clause = f"LIMIT {limit}" if limit else ""
+    offset_clause = f"OFFSET {offset}" if offset else ""
+
     sparql = f"""
 {SKOS_PREFIX}
 {KOID_PREFIX}
 {DCT_PREFIX}
 {SCHEMA_PREFIX}
-SELECT ?disease ?nameKo ?identifier ?grade ?definition WHERE {{
-  ?disease a schema:InfectiousDisease .
-  OPTIONAL {{ ?disease skos:prefLabel ?nameKo . FILTER(LANG(?nameKo) = "ko") }}
+SELECT DISTINCT ?disease ?labelKo ?labelEn ?identifier ?grade ?shortDef ?longDesc
+       (GROUP_CONCAT(DISTINCT ?symptomLabel; separator="|") AS ?symptoms)
+       (GROUP_CONCAT(DISTINCT ?routeLabel; separator="|") AS ?routes)
+       (GROUP_CONCAT(DISTINCT ?treatmentLabel; separator="|") AS ?treatments)
+       (GROUP_CONCAT(DISTINCT ?adverseEventLabel; separator="|") AS ?adverseEvents) WHERE {{
+  {{ ?disease a schema:InfectiousDisease . }}
+  UNION
+  {{ ?disease a koid:InfectiousDisease . }}
+
+  # 한국어 이름 (필수)
+  OPTIONAL {{
+    ?disease skos:prefLabel ?labelKo .
+    FILTER(LANG(?labelKo) = "ko")
+  }}
+
+  # 영어 이름 (선택)
+  OPTIONAL {{
+    ?disease skos:prefLabel ?labelEn .
+    FILTER(LANG(?labelEn) = "en")
+  }}
+
+  OPTIONAL {{ ?disease schema:name ?labelKo . }}
   OPTIONAL {{ ?disease dcterms:identifier ?identifier . }}
   OPTIONAL {{ ?disease koid:classificationLevel ?grade . }}
-  OPTIONAL {{ ?disease koid:definition ?definition . }}
-  OPTIONAL {{ ?disease schema:description ?definition . }}
+  OPTIONAL {{ ?disease koid:definition ?shortDef . }}
+  OPTIONAL {{ ?disease schema:description ?longDesc . }}
+
+  # 증상
+  OPTIONAL {{
+    ?disease koid:symptom ?symptom .
+    ?symptom skos:prefLabel ?symptomLabel .
+  }}
+
+  # 전파경로
+  OPTIONAL {{
+    ?disease koid:transmissionRoute ?route .
+    ?route skos:prefLabel ?routeLabel .
+  }}
+
+  # 치료
+  OPTIONAL {{
+    ?disease koid:treatment ?treatment .
+    ?treatment skos:prefLabel ?treatmentLabel .
+  }}
+
+  # 이상반응
+  OPTIONAL {{
+    ?disease koid:adverseEvent ?adverseEvent .
+    ?adverseEvent skos:prefLabel ?adverseEventLabel .
+  }}
 }}
-ORDER BY ?grade ?nameKo
-LIMIT {limit}
+GROUP BY ?disease ?labelKo ?labelEn ?identifier ?grade ?shortDef ?longDesc
+{offset_clause}
+{limit_clause}
 """
     try:
         data = await graphdb.query(sparql)
@@ -54,51 +105,62 @@ LIMIT {limit}
         diseases: List[Dict[str, Any]] = []
         for b in bindings:
             uri = b.get("disease", {}).get("value")
-            name_ko = b.get("nameKo", {}).get("value") if b.get("nameKo") else None
+            label_ko = b.get("labelKo", {}).get("value") if b.get("labelKo") else None
+            label_en = b.get("labelEn", {}).get("value") if b.get("labelEn") else None
             identifier = b.get("identifier", {}).get("value") if b.get("identifier") else None
             grade = b.get("grade", {}).get("value") if b.get("grade") else None
-            definition = b.get("definition", {}).get("value") if b.get("definition") else ""
+            short_def = b.get("shortDef", {}).get("value") if b.get("shortDef") else ""
+            long_desc = b.get("longDesc", {}).get("value") if b.get("longDesc") else ""
+            symptoms_str = b.get("symptoms", {}).get("value") if b.get("symptoms") else ""
+            routes_str = b.get("routes", {}).get("value") if b.get("routes") else ""
+            treatments_str = b.get("treatments", {}).get("value") if b.get("treatments") else ""
+            adverse_events_str = b.get("adverseEvents", {}).get("value") if b.get("adverseEvents") else ""
+
+            # 증상 파싱 ("|"로 구분된 문자열을 배열로 변환)
+            symptoms = []
+            if symptoms_str:
+                symptoms = [s.strip() for s in symptoms_str.split("|") if s.strip()]
+
+            # 전파경로 파싱
+            routes = []
+            if routes_str:
+                routes = [s.strip() for s in routes_str.split("|") if s.strip()]
+
+            # 치료 파싱
+            treatments = []
+            if treatments_str:
+                treatments = [s.strip() for s in treatments_str.split("|") if s.strip()]
+
+            # 이상반응 파싱
+            adverse_events = []
+            if adverse_events_str:
+                adverse_events = [s.strip() for s in adverse_events_str.split("|") if s.strip()]
 
             fallback_id = uri.rsplit("/", 1)[-1] if uri else None
             disease_id = identifier or fallback_id
-            display_name = name_ko or fallback_id or "Unknown"
+
+            # 한국어 이름 우선, 없으면 fallback
+            display_name_ko = label_ko or fallback_id or "Unknown"
+            display_name_en = label_en or ""
 
             diseases.append(
                 {
                     "id": uri,
                     "diseaseId": disease_id,
-                    "name": display_name,
-                    "nameKo": display_name,
+                    "name": display_name_ko,
+                    "nameKo": display_name_ko,
+                    "nameEn": display_name_en,
                     "grade": grade or "",
                     "gradeType": grade_to_type(grade),
-                    "definition": definition,
-                    "description": definition,
+                    "definition": short_def,
+                    "description": long_desc or short_def,
+                    "symptoms": symptoms,
+                    "transmissionRoutes": routes,
+                    "treatments": treatments,
+                    "adverseEvents": adverse_events,
                 }
             )
         return {"diseases": diseases}
     except Exception as exc:
-        # Fail-soft: return sample data to avoid 500s
-        print("Diseases endpoint error:", exc)
-        sample = [
-            {
-                "id": "sample-1",
-                "diseaseId": "DIS_0001",
-                "name": "A형간염",
-                "nameKo": "A형간염",
-                "grade": "2급",
-                "gradeType": grade_to_type("2"),
-                "definition": "A형간염에 대한 예시 정의입니다.",
-                "description": "A형간염 예시 정의",
-            },
-            {
-                "id": "sample-2",
-                "diseaseId": "DIS_0002",
-                "name": "인플루엔자",
-                "nameKo": "인플루엔자",
-                "grade": "2급",
-                "gradeType": grade_to_type("2"),
-                "definition": "독감에 대한 예시 정의입니다.",
-                "description": "독감 예시 정의",
-            },
-        ]
-        return {"diseases": sample, "note": "Fallback sample data due to backend error"}
+        logging.getLogger(__name__).exception("Diseases endpoint error")
+        raise HTTPException(status_code=502, detail=f"GraphDB query failed: {exc}")

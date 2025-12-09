@@ -1,343 +1,78 @@
-// 감염병 데이터
-const diseases = [
-    {
-        id: 1,
-        nameKo: '코로나19',
-        nameEn: 'COVID-19',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '코로나바이러스감염증-19는 SARS-CoV-2 바이러스에 의해 발생하는 호흡기 감염병입니다.',
-        symptoms: ['발열', '기침', '호흡곤란', '폐렴'],
-        transmission: '주로 비말(침방울)을 통한 호흡기 전파',
-        pathogen: 'SARS-CoV-2 바이러스',
-        complications: '급성 호흡곤란 증후군, 다장기 부전',
-        vaccination: '백신 접종 가능 (mRNA 백신, 바이러스 벡터 백신 등)',
-        sideEffects: '주사 부위 통증, 발열, 두통, 근육통',
-        isolation: true
-    },
-    {
-        id: 2,
-        nameKo: '특정감염병',
-        nameEn: 'Special Infectious Disease',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '특정감염병은 법정감염병 중 특별한 관리가 필요한 감염병입니다.',
-        symptoms: ['발열', '두통', '전신쇠약'],
-        transmission: '병원체에 따라 다양',
-        pathogen: '다양한 병원체',
-        complications: '병원체에 따라 상이',
-        vaccination: '병원체에 따라 상이',
-        sideEffects: '병원체에 따라 상이',
-        isolation: false
-    },
-    {
-        id: 3,
-        nameKo: '장티푸스',
-        nameEn: 'Typhoid Fever',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '장티푸스는 살모넬라균에 의해 발생하는 전신성 감염병입니다.',
-        symptoms: ['고열', '두통', '복통', '설사'],
-        transmission: '오염된 음식물이나 물을 통한 경구 감염',
-        pathogen: 'Salmonella Typhi',
-        complications: '장천공, 장출혈',
-        vaccination: '장티푸스 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: true
-    },
-    {
-        id: 4,
-        nameKo: '콜레라',
-        nameEn: 'Cholera',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '콜레라는 비브리오 콜레라균에 의해 발생하는 급성 장관 감염병입니다.',
-        symptoms: ['심한 설사', '구토', '탈수'],
-        transmission: '오염된 물이나 음식물을 통한 경구 감염',
-        pathogen: 'Vibrio cholerae',
-        complications: '심한 탈수, 쇼크, 사망',
-        vaccination: '콜레라 백신 접종 가능',
-        sideEffects: '경미한 위장 장애',
-        isolation: true
-    },
-    {
-        id: 5,
-        nameKo: 'A형 간염',
-        nameEn: 'Hepatitis A',
-        icon: '🦠',
-        iconColor: '#ffc107',
-        grade: '3급',
-        gradeType: 'grade3',
-        description: 'A형 간염은 A형 간염 바이러스에 의해 발생하는 급성 간염입니다.',
-        symptoms: ['황달', '피로', '식욕부진', '발열'],
-        transmission: '오염된 음식물이나 물을 통한 경구 감염',
-        pathogen: 'Hepatitis A Virus (HAV)',
-        complications: '급성 간부전',
-        vaccination: 'A형 간염 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: false
-    },
-    {
-        id: 6,
-        nameKo: 'B형 간염',
-        nameEn: 'Hepatitis B',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: 'B형 간염은 B형 간염 바이러스에 의해 발생하는 간염입니다.',
-        symptoms: ['황달', '피로', '복통'],
-        transmission: '혈액, 성접촉, 수직 감염',
-        pathogen: 'Hepatitis B Virus (HBV)',
-        complications: '만성 간염, 간경변, 간암',
-        vaccination: 'B형 간염 백신 접종 가능',
-        sideEffects: '주사 부위 통증',
-        isolation: false
-    },
-    {
-        id: 7,
-        nameKo: '수두',
-        nameEn: 'Chickenpox',
-        icon: '🦠',
-        iconColor: '#ffc107',
-        grade: '3급',
-        gradeType: 'grade3',
-        description: '수두는 수두-대상포진 바이러스에 의해 발생하는 급성 발진성 질환입니다.',
-        symptoms: ['발진', '발열', '가려움'],
-        transmission: '비말, 공기 전파',
-        pathogen: 'Varicella-Zoster Virus (VZV)',
-        complications: '세균성 피부 감염, 폐렴, 뇌염',
-        vaccination: '수두 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발진',
-        isolation: true
-    },
-    {
-        id: 8,
-        nameKo: '유행성 뇌수막염',
-        nameEn: 'Meningococcal Disease',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '유행성 뇌수막염은 뇌수막구균에 의해 발생하는 중증 감염병입니다.',
-        symptoms: ['고열', '두통', '경부강직', '의식저하'],
-        transmission: '비말 전파',
-        pathogen: 'Neisseria meningitidis',
-        complications: '뇌수막염, 패혈증, 사망',
-        vaccination: '뇌수막구균 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: true
-    },
-    {
-        id: 9,
-        nameKo: '유행성 출혈열',
-        nameEn: 'Hemorrhagic Fever with Renal Syndrome',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '유행성 출혈열은 한타바이러스에 의해 발생하는 급성 발열성 질환입니다.',
-        symptoms: ['발열', '출혈', '신부전'],
-        transmission: '쥐의 배설물을 통한 감염',
-        pathogen: 'Hantavirus',
-        complications: '급성 신부전, 사망',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: true
-    },
-    {
-        id: 10,
-        nameKo: '일본뇌염',
-        nameEn: 'Japanese Encephalitis',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '일본뇌염은 일본뇌염 바이러스에 의해 발생하는 중추신경계 감염병입니다.',
-        symptoms: ['고열', '두통', '의식저하', '경련'],
-        transmission: '모기에 의한 전파',
-        pathogen: 'Japanese Encephalitis Virus',
-        complications: '뇌염, 사망, 신경계 후유증',
-        vaccination: '일본뇌염 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: false
-    },
-    {
-        id: 11,
-        nameKo: '폐렴구균 감염증',
-        nameEn: 'Pneumococcal Disease',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '폐렴구균 감염증은 폐렴구균에 의해 발생하는 감염병입니다.',
-        symptoms: ['발열', '기침', '호흡곤란'],
-        transmission: '비말 전파',
-        pathogen: 'Streptococcus pneumoniae',
-        complications: '폐렴, 수막염, 패혈증',
-        vaccination: '폐렴구균 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: false
-    },
-    {
-        id: 12,
-        nameKo: '에볼라바이러스',
-        nameEn: 'Ebolavirus',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '에볼라바이러스는 에볼라바이러스에 의해 발생하는 중증 출혈열입니다.',
-        symptoms: ['고열', '출혈', '설사', '구토'],
-        transmission: '감염자의 체액 접촉',
-        pathogen: 'Ebolavirus',
-        complications: '다장기 부전, 사망',
-        vaccination: '에볼라 백신 접종 가능',
-        sideEffects: '주사 부위 통증, 발열',
-        isolation: true
-    },
-    {
-        id: 13,
-        nameKo: 'C형 간염',
-        nameEn: 'Hepatitis C',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: 'C형 간염은 C형 간염 바이러스에 의해 발생하는 간염입니다.',
-        symptoms: ['황달', '피로', '복통'],
-        transmission: '혈액, 성접촉',
-        pathogen: 'Hepatitis C Virus (HCV)',
-        complications: '만성 간염, 간경변, 간암',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: false
-    },
-    {
-        id: 14,
-        nameKo: '말라리아',
-        nameEn: 'Malaria',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '말라리아는 말라리아 원충에 의해 발생하는 열대성 질환입니다.',
-        symptoms: ['주기적 발열', '오한', '두통'],
-        transmission: '모기에 의한 전파',
-        pathogen: 'Plasmodium species',
-        complications: '뇌말라리아, 사망',
-        vaccination: '말라리아 예방약 복용',
-        sideEffects: '예방약 부작용',
-        isolation: false
-    },
-    {
-        id: 15,
-        nameKo: '발진티푸스',
-        nameEn: 'Typhus',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '발진티푸스는 리케차에 의해 발생하는 발열성 질환입니다.',
-        symptoms: ['발열', '발진', '두통'],
-        transmission: '벼룩이나 진드기에 의한 전파',
-        pathogen: 'Rickettsia',
-        complications: '뇌염, 사망',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: false
-    },
-    {
-        id: 16,
-        nameKo: '풀무티푸스',
-        nameEn: 'Endemic Typhus',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '3급',
-        gradeType: 'grade3',
-        description: '풀무티푸스는 리케차에 의해 발생하는 발열성 질환입니다.',
-        symptoms: ['발열', '발진'],
-        transmission: '벼룩에 의한 전파',
-        pathogen: 'Rickettsia typhi',
-        complications: '드물게 중증 합병증',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: false
-    },
-    {
-        id: 17,
-        nameKo: '쯔쯔가무시병',
-        nameEn: 'Scrub Typhus',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '쯔쯔가무시병은 오리엔티아 쯔쯔가무시에 의해 발생하는 발열성 질환입니다.',
-        symptoms: ['발열', '발진', '가피'],
-        transmission: '진드기에 의한 전파',
-        pathogen: 'Orientia tsutsugamushi',
-        complications: '폐렴, 뇌염',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: false
-    },
-    {
-        id: 18,
-        nameKo: '진드기매개 뇌염',
-        nameEn: 'Tick-borne Encephalitis',
-        icon: '🦠',
-        iconColor: '#ff4444',
-        grade: '1급',
-        gradeType: 'grade1',
-        description: '진드기매개 뇌염은 진드기매개 뇌염 바이러스에 의해 발생하는 중추신경계 감염병입니다.',
-        symptoms: ['발열', '두통', '의식저하'],
-        transmission: '진드기에 의한 전파',
-        pathogen: 'Tick-borne Encephalitis Virus',
-        complications: '뇌염, 사망',
-        vaccination: '진드기매개 뇌염 백신 접종 가능',
-        sideEffects: '주사 부위 통증',
-        isolation: false
-    },
-    {
-        id: 19,
-        nameKo: '매독',
-        nameEn: 'Syphilis',
-        icon: '🦠',
-        iconColor: '#ff9800',
-        grade: '2급',
-        gradeType: 'grade2',
-        description: '매독은 매독균에 의해 발생하는 성매개 감염병입니다.',
-        symptoms: ['초기: 궤양', '2기: 발진', '3기: 신경계 증상'],
-        transmission: '성접촉, 수직 감염',
-        pathogen: 'Treponema pallidum',
-        complications: '신경매독, 심혈관 매독',
-        vaccination: '백신 없음',
-        sideEffects: '-',
-        isolation: false
-    }
-];
+// 감염병 상세 페이지 - API 연동 버전
 
+const API_BASE = window.__API_BASE ||
+    (location.port === '8001'
+        ? `${location.protocol}//${location.host}`
+        : 'http://localhost:8001');
+
+let diseases = []; // API에서 로드된 감염병 데이터
 let showingAll = false;
 const INITIAL_DISPLAY_COUNT = 8;
 
-// 페이지 로드 시 초기 카드 표시
-document.addEventListener('DOMContentLoaded', function() {
-    renderDiseases(diseases.slice(0, INITIAL_DISPLAY_COUNT));
+// 페이지 로드 시 API에서 감염병 데이터 로드
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadDiseasesFromAPI();
 });
+
+// API에서 감염병 데이터 로드
+async function loadDiseasesFromAPI() {
+    const loadingEl = document.getElementById('loadingIndicator');
+    const containerEl = document.getElementById('diseasesContainer');
+
+    try {
+        // 로딩 표시
+        if (loadingEl) loadingEl.style.display = 'block';
+
+        // API 호출
+        const response = await fetch(`${API_BASE}/api/diseases?limit=200`);
+
+        if (!response.ok) {
+            throw new Error(`API 호출 실패: ${response.status}`);
+        }
+
+        const data = await response.json();
+        diseases = data.diseases || [];
+
+        // 데이터가 없는 경우
+        if (diseases.length === 0) {
+            containerEl.innerHTML = '<div class="no-data">감염병 정보가 없습니다.</div>';
+            return;
+        }
+
+        // 초기 카드 표시
+        renderDiseases(diseases.slice(0, INITIAL_DISPLAY_COUNT));
+
+        // 더보기 버튼 표시
+        if (diseases.length > INITIAL_DISPLAY_COUNT) {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            if (showMoreBtn) {
+                showMoreBtn.classList.remove('hidden');
+                showMoreBtn.textContent = `더보기 (${diseases.length - INITIAL_DISPLAY_COUNT}개 더)`;
+            }
+        }
+
+    } catch (error) {
+        console.error('감염병 데이터 로드 실패:', error);
+        containerEl.innerHTML = `
+            <div class="error-message">
+                <p>감염병 정보를 불러오는데 실패했습니다.</p>
+                <p>백엔드 서버가 실행 중인지 확인해주세요 (http://localhost:8001)</p>
+                <button onclick="loadDiseasesFromAPI()">다시 시도</button>
+            </div>
+        `;
+    } finally {
+        // 로딩 숨기기
+        if (loadingEl) loadingEl.style.display = 'none';
+    }
+}
 
 // 감염병 카드 렌더링
 function renderDiseases(diseaseList) {
     const container = document.getElementById('diseasesContainer');
+    if (!container) return;
+
     container.innerHTML = '';
-    
+
     diseaseList.forEach(disease => {
         const card = createDiseaseCard(disease);
         container.appendChild(card);
@@ -347,43 +82,42 @@ function renderDiseases(diseaseList) {
 // 감염병 카드 생성
 function createDiseaseCard(disease) {
     const card = document.createElement('div');
-    card.className = `disease-card ${disease.gradeType}`;
+    card.className = `disease-card ${disease.gradeType || 'grade2'}`;
     card.onclick = () => showDetail(disease);
-    
+
     // 등급별 아이콘 선택
-    let displayIcon = disease.icon;
-    if (disease.gradeType === 'grade1') {
+    const gradeType = disease.gradeType || 'grade2';
+    let displayIcon = '🦠';
+    if (gradeType === 'grade1') {
         displayIcon = '⚠️';
-    } else if (disease.gradeType === 'grade2') {
-        displayIcon = '🦠';
-    } else if (disease.gradeType === 'grade3') {
-        displayIcon = '🦠';
     }
-    
-    // 등급별 아이콘 클래스
-    const iconClass = disease.gradeType === 'grade1' ? 'grade1-icon' : 
-                     disease.gradeType === 'grade2' ? 'grade2-icon' : 
-                     disease.gradeType === 'grade3' ? 'grade3-icon' : '';
-    
-    // 등급별 배지 클래스
-    const badgeClass = disease.gradeType === 'grade1' ? 'grade1-badge' : 
-                      disease.gradeType === 'grade2' ? 'grade2-badge' : 
-                      disease.gradeType === 'grade3' ? 'grade3-badge' : '';
-    
-    // 등급별 버튼 클래스
-    const btnClass = disease.gradeType === 'grade1' ? 'grade1-btn' : 
-                    disease.gradeType === 'grade2' ? 'grade2-btn' : 
-                    disease.gradeType === 'grade3' ? 'grade3-btn' : 
-                    disease.gradeType === 'grade4' ? 'grade4-btn' : '';
-    
+
+    // 등급별 클래스
+    const iconClass = `${gradeType}-icon`;
+    const badgeClass = `${gradeType}-badge`;
+    const btnClass = `${gradeType}-btn`;
+
+    // 이름 표시 (nameKo 또는 name 사용)
+    const displayName = disease.nameKo || disease.name || '알 수 없는 감염병';
+
+    // 설명 표시 (description 또는 definition 사용, 100자로 제한)
+    let description = disease.description || disease.definition || '설명이 없습니다.';
+    if (description.length > 100) {
+        description = description.substring(0, 100) + '...';
+    }
+
+    // 영문 이름 표시 (있으면)
+    const nameEnHTML = disease.nameEn ? `<p class="disease-name-en" style="font-size: 0.8em; color: #888; margin-top: -5px;">${disease.nameEn}</p>` : '';
+
     card.innerHTML = `
         <div class="disease-icon ${iconClass}">${displayIcon}</div>
-        <div class="grade-badge ${badgeClass}">${disease.grade}</div>
-        <h3 class="disease-name-ko">${disease.nameKo}</h3>
-        <p class="disease-description">${disease.description}</p>
-        <button class="more-btn ${btnClass}" onclick="event.stopPropagation(); showDetailById(${disease.id})">더보기</button>
+        <div class="grade-badge ${badgeClass}">${disease.grade || '등급 미상'}</div>
+        <h3 class="disease-name-ko">${displayName}</h3>
+        ${nameEnHTML}
+        <p class="disease-description">${description}</p>
+        <button class="more-btn ${btnClass}" onclick="event.stopPropagation(); showDetail(${JSON.stringify(disease).replace(/"/g, '&quot;')})">더보기</button>
     `;
-    
+
     return card;
 }
 
@@ -391,34 +125,67 @@ function createDiseaseCard(disease) {
 function showAllDiseases() {
     showingAll = true;
     renderDiseases(diseases);
-    document.getElementById('showMoreBtn').classList.add('hidden');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    if (showMoreBtn) {
+        showMoreBtn.classList.add('hidden');
+    }
 }
 
 // 검색 필터링
 function filterDiseases() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = diseases.filter(disease => 
-        disease.nameKo.toLowerCase().includes(searchTerm) ||
-        disease.nameEn.toLowerCase().includes(searchTerm) ||
-        disease.description.toLowerCase().includes(searchTerm) ||
-        disease.symptoms.some(s => s.toLowerCase().includes(searchTerm))
-    );
-    
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // 검색어가 없으면 초기 상태로
+    if (!searchTerm) {
+        if (showingAll) {
+            renderDiseases(diseases);
+        } else {
+            renderDiseases(diseases.slice(0, INITIAL_DISPLAY_COUNT));
+        }
+        return;
+    }
+
+    // 검색 필터링
+    const filtered = diseases.filter(disease => {
+        const nameKo = (disease.nameKo || disease.name || '').toLowerCase();
+        const nameEn = (disease.nameEn || '').toLowerCase();
+        const description = (disease.description || disease.definition || '').toLowerCase();
+        const grade = (disease.grade || '').toLowerCase();
+
+        return nameKo.includes(searchTerm) ||
+               nameEn.includes(searchTerm) ||
+               description.includes(searchTerm) ||
+               grade.includes(searchTerm);
+    });
+
+    // 결과 렌더링
+    if (filtered.length === 0) {
+        const container = document.getElementById('diseasesContainer');
+        container.innerHTML = `
+            <div class="no-results">
+                <p>검색 결과가 없습니다.</p>
+                <p>"${searchTerm}"와 일치하는 감염병이 없습니다.</p>
+            </div>
+        `;
+        return;
+    }
+
     if (showingAll || filtered.length <= INITIAL_DISPLAY_COUNT) {
         renderDiseases(filtered);
-        document.getElementById('showMoreBtn').classList.add('hidden');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        if (showMoreBtn) {
+            showMoreBtn.classList.add('hidden');
+        }
     } else {
         renderDiseases(filtered.slice(0, INITIAL_DISPLAY_COUNT));
-        document.getElementById('showMoreBtn').classList.remove('hidden');
-        document.getElementById('showMoreBtn').textContent = `더보기 (${filtered.length - INITIAL_DISPLAY_COUNT}개 더)`;
-    }
-}
-
-// ID로 상세 정보 표시
-function showDetailById(id) {
-    const disease = diseases.find(d => d.id === id);
-    if (disease) {
-        showDetail(disease);
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        if (showMoreBtn) {
+            showMoreBtn.classList.remove('hidden');
+            showMoreBtn.textContent = `더보기 (${filtered.length - INITIAL_DISPLAY_COUNT}개 더)`;
+        }
     }
 }
 
@@ -426,69 +193,147 @@ function showDetailById(id) {
 function showDetail(disease) {
     const modal = document.getElementById('detailModal');
     const modalBody = document.getElementById('modalBody');
-    
+
+    if (!modal || !modalBody) return;
+
+    // 이름
+    const nameKo = disease.nameKo || disease.name || '알 수 없는 감염병';
+    const nameEn = disease.nameEn || '';
+
+    // 설명
+    const description = disease.description || disease.definition || '설명이 없습니다.';
+
+    // 등급
+    const grade = disease.grade || '등급 미상';
+    const gradeType = disease.gradeType || 'grade2';
+
+    // 아이콘
+    const icon = gradeType === 'grade1' ? '⚠️' : '🦠';
+    const iconColor = gradeType === 'grade1' ? '#ff4444' :
+                      gradeType === 'grade2' ? '#ff9800' : '#ffc107';
+
+    // 증상 (API 응답에 따라 다를 수 있음)
+    let symptomsHTML = '<li>증상 정보가 없습니다.</li>';
+    let extractedSymptoms = [];
+
+    // 1순위: symptoms 배열 (GraphDB에서 가져온 증상 - 가장 정확함)
+    if (disease.symptoms && Array.isArray(disease.symptoms) && disease.symptoms.length > 0) {
+        extractedSymptoms = disease.symptoms;
+    }
+
+    // 2순위: symptomNames 배열
+    if (extractedSymptoms.length === 0 && disease.symptomNames && Array.isArray(disease.symptomNames) && disease.symptomNames.length > 0) {
+        extractedSymptoms = disease.symptomNames;
+    }
+
+    // 3순위: description에서 상세 증상 추출 (fallback)
+    if (extractedSymptoms.length === 0 && description) {
+        extractedSymptoms = extractSymptomsFromDescription(description);
+    }
+
+    // 증상 HTML 생성
+    if (extractedSymptoms.length > 0) {
+        symptomsHTML = extractedSymptoms.map(s => `<li>${s}</li>`).join('');
+    }
+
+    // 증상 추출 함수 (description에서)
+    function extractSymptomsFromDescription(desc) {
+        // "전형적인 증상은 고열, 권태감, 식욕부진, ..." 패턴 매칭
+        const match = desc.match(/전형적인\s*증상은?\s*([^.。]+)/);
+        if (match && match[1]) {
+            // "고열, 권태감, 식욕부진, 메스꺼움, 복통, 암갈색 소변, 황달 등으로" 형식에서 증상 추출
+            const symptomsText = match[1].replace(/\s*등(으로|입니다|이며).*$/, ''); // "등으로" 이후 제거
+            return symptomsText
+                .split(/[,،]\s*/)
+                .map(s => s.trim())
+                .filter(s => s.length > 0 && s.length < 30)
+                .slice(0, 15); // 최대 15개
+        }
+        return [];
+    }
+
+    // 정의(짧은 설명)
+    const definition = disease.definition || '정의 정보가 없습니다.';
+
+    // 전파경로, 치료, 이상반응 정보 추출
+    const transmissionRoutes = disease.transmissionRoutes || [];
+    const treatments = disease.treatments || [];
+    const adverseEvents = disease.adverseEvents || [];
+
+    // 근처 병원 버튼 표시 여부 (1급, 2급만)
+    const showHospitalBtn = gradeType === 'grade1' || gradeType === 'grade2';
+
     modalBody.innerHTML = `
         <div class="modal-header">
-            <div class="modal-icon" style="color: ${disease.iconColor}">${disease.icon}</div>
+            <div class="modal-icon" style="color: ${iconColor}">${icon}</div>
             <div class="modal-title">
-                <h2>${disease.nameKo}</h2>
-                <p>${disease.nameEn}</p>
+                <h2>${nameKo}</h2>
+                ${nameEn ? `<p>${nameEn}</p>` : ''}
             </div>
         </div>
-        
+
         <div class="detail-section">
             <h3>등급</h3>
-            <div class="grade-badge ${disease.gradeType}">${disease.grade}</div>
-            <div class="isolation-badge ${disease.isolation ? 'yes' : 'no'}">
-                격리 ${disease.isolation ? '필요' : '불필요'}
-            </div>
+            <div class="grade-badge ${gradeType}">${grade}</div>
         </div>
-        
+
         <div class="detail-section">
             <h3>정의</h3>
-            <p>${disease.description}</p>
+            <p>${definition}</p>
         </div>
-        
+
         <div class="detail-section">
             <h3>증상</h3>
             <ul>
-                ${disease.symptoms.map(symptom => `<li>${symptom}</li>`).join('')}
+                ${symptomsHTML}
             </ul>
         </div>
-        
-        <div class="detail-grid">
-            <div class="detail-item">
-                <strong>전파경로</strong>
-                <p>${disease.transmission}</p>
-            </div>
-            <div class="detail-item">
-                <strong>병원체</strong>
-                <p>${disease.pathogen}</p>
-            </div>
-            <div class="detail-item">
-                <strong>합병증</strong>
-                <p>${disease.complications}</p>
-            </div>
-            <div class="detail-item">
-                <strong>예방접종</strong>
-                <p>${disease.vaccination}</p>
-            </div>
-            <div class="detail-item">
-                <strong>이상반응</strong>
-                <p>${disease.sideEffects}</p>
-                <button class="hospital-btn" onclick="window.location.href='hospitals.html'">
-                    🏥 근처 병원 알아보기
-                </button>
-            </div>
+
+        ${transmissionRoutes.length > 0 ? `
+        <div class="detail-section">
+            <h3>전파경로</h3>
+            <ul>
+                ${transmissionRoutes.map(r => `<li>${r}</li>`).join('')}
+            </ul>
         </div>
+        ` : ''}
+
+        ${treatments.length > 0 ? `
+        <div class="detail-section">
+            <h3>치료</h3>
+            <ul>
+                ${treatments.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+        </div>
+        ` : ''}
+
+        ${adverseEvents.length > 0 ? `
+        <div class="detail-section">
+            <h3>이상반응</h3>
+            <ul>
+                ${adverseEvents.map(e => `<li>${e}</li>`).join('')}
+            </ul>
+        </div>
+        ` : ''}
+
+        ${showHospitalBtn ? `
+        <div class="detail-section">
+            <button class="hospital-btn" onclick="window.location.href='hospitals.html'">
+                🏥 근처 병원 알아보기
+            </button>
+        </div>
+        ` : ''}
     `;
-    
+
     modal.style.display = 'block';
 }
 
 // 모달 닫기
 function closeModal() {
-    document.getElementById('detailModal').style.display = 'none';
+    const modal = document.getElementById('detailModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // 모달 외부 클릭 시 닫기
@@ -498,4 +343,3 @@ window.onclick = function(event) {
         closeModal();
     }
 }
-
