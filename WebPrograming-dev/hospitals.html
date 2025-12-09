@@ -1,66 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>의료기관 찾기</title>
-        <link rel="stylesheet" href="styles/hospitals.css" />
-        <script
-            type="text/javascript"
-            // 🚨 services 라이브러리 추가
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=032c96ae926c58d7aee0b852df64e54f&libraries=services&autoload=false"
-            ></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의료기관 찾기</title>
+    <link rel="stylesheet" href="styles/hospitals.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_APP_KEY&autoload=false"></script>
+    <!-- 카카오맵 API 키를 발급받아 위의 YOUR_KAKAO_APP_KEY를 교체해주세요 -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.location.href='index.html'">← 뒤로가기</button>
+            <h1>내 주변 의료기관 찾기</h1>
+        </header>
 
-    <body>
-        <div class="container">
-            <header>
-                <button
-                class="back-btn"
-                onclick="window.location.href='index.html'">
-                ← 뒤로가기
-                </button>
-                <h1>내 주변 의료기관 찾기</h1>
-            </header>
+        <section class="description-section">
+            <p>현재 위치를 기준으로 주변의 의료기관, 격리시설, 병원을 지도에서 확인할 수 있습니다. 마커를 클릭하면 상세 정보를 확인할 수 있습니다.</p>
+        </section>
 
-            <section class="description-section">
-                <p>
-                    현재 위치를 기준으로 주변의 의료기관, 격리시설, 병원을
-                    지도에서 확인할 수 있습니다. 마커를 클릭하면 상세 정보를
-                    확인할 수 있습니다.
-                </p>
-            </section>
+        <section class="map-section">
+            <div id="map" style="width:100%;height:600px;"></div>
+        </section>
 
-            <section class="map-section">
-                <div id="map" style="width: 100%; height: 600px"></div>
-            </section>
-            
-            <section class="legend-section">
-                <h3>범례</h3>
-                <div class="legend-items">
-                    <div class="legend-item">
-                        <div class="legend-marker current-location"></div>
-                        <span>현재 위치</span>
-                    </div>
-                    
-                    <div class="legend-item">
-                        <div class="legend-marker hospital"></div>
-                        <span>병원</span>
-                    </div>
-
-                    <div class="legend-item">
-                        <div class="legend-marker clinic"></div>
-                        <span>의원</span>
-                    </div>
-
-                    <div class="legend-item">
-                        <div class="legend-marker isolation"></div>
-                        <span>격리시설</span>
-                    </div>
+        <section class="legend-section">
+            <h3>범례</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-marker current-location"></div>
+                    <span>현재 위치</span>
                 </div>
-            </section>
-        </div>
+                <div class="legend-item">
+                    <div class="legend-marker hospital"></div>
+                    <span>병원</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-marker clinic"></div>
+                    <span>의원</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-marker isolation"></div>
+                    <span>격리시설</span>
+                </div>
+            </div>
+        </section>
+    </div>
 
-        <script src="scripts/hospitals.js"></script>
-    </body>
+    <script src="scripts/hospitals.js"></script>
+</body>
 </html>
