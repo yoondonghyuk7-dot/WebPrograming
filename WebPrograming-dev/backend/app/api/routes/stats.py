@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+import logging
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.deps import get_graphdb_client
 from app.services.graphdb_client import GraphDBClient
@@ -48,9 +49,8 @@ LIMIT {limit}
     try:
         data = await graphdb.query(sparql)
     except Exception as exc:
-        # Fail-soft: return empty series to avoid 500
-        print("SPARQL error (region timeseries):", exc)
-        return []
+        logging.getLogger(__name__).exception("SPARQL error (region timeseries)")
+        raise HTTPException(status_code=502, detail=f"GraphDB query failed: {exc}")
     series: List[Dict[str, Any]] = []
     for b in data.get("results", {}).get("bindings", []):
         year_val = b.get("yearVal", {}).get("value")
@@ -116,9 +116,8 @@ LIMIT 200
     try:
         data = await graphdb.query(sparql)
     except Exception as exc:
-        # Fail-soft: return empty breakdown to avoid 500
-        print("SPARQL error (gender/age breakdown):", exc)
-        return []
+        logging.getLogger(__name__).exception("SPARQL error (gender/age breakdown)")
+        raise HTTPException(status_code=502, detail=f"GraphDB query failed: {exc}")
     breakdown: List[Dict[str, Any]] = []
     for b in data.get("results", {}).get("bindings", []):
         breakdown.append(
@@ -162,29 +161,8 @@ async def incidence_stats(
             "byGenderAge": by_gender_age,
             "filters": {"gender": gender, "ageGroup": ageGroup, "year": year},
         }
+    except HTTPException:
+        raise
     except Exception as exc:
-        # Fail-soft: return hardcoded sample shape to keep frontend working
-        print("Incidence endpoint error:", exc)
-        sample_years = [2019, 2020, 2021, 2022, 2023]
-        sample_by_region = [
-            {"year": 2019, "incidenceRate": 10.5, "caseCount": 100},
-            {"year": 2020, "incidenceRate": 12.3, "caseCount": 120},
-            {"year": 2021, "incidenceRate": 15.0, "caseCount": 140},
-            {"year": 2022, "incidenceRate": 13.2, "caseCount": 130},
-            {"year": 2023, "incidenceRate": 11.8, "caseCount": 115},
-        ]
-        sample_by_gender_age = [
-            {"gender": "M", "ageGroup": "20-29", "incidenceRate": 8.2, "caseCount": 40},
-            {"gender": "F", "ageGroup": "20-29", "incidenceRate": 10.1, "caseCount": 55},
-            {"gender": "M", "ageGroup": "30-39", "incidenceRate": 7.5, "caseCount": 35},
-            {"gender": "F", "ageGroup": "30-39", "incidenceRate": 9.0, "caseCount": 45},
-        ]
-        return {
-            "diseaseId": diseaseId,
-            "region": region,
-            "years": sample_years,
-            "byRegion": sample_by_region,
-            "byGenderAge": sample_by_gender_age,
-            "filters": {"gender": gender, "ageGroup": ageGroup, "year": year},
-            "note": "Fallback sample data due to backend error",
-        }
+        logging.getLogger(__name__).exception("Incidence endpoint error")
+        raise HTTPException(status_code=502, detail=f"GraphDB query failed: {exc}")

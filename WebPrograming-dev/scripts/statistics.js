@@ -1,172 +1,163 @@
-// 통계 페이지: TTL 파싱 대신 백엔드 /api/stats/incidence 연동
+// 통계 페이지: 텍스트 렌더링(그래프 없음) + 버튼/셀렉트 이벤트 정상화
 
 const API_BASE =
     window.__API_BASE ||
     (location.port === '8001'
         ? `${location.protocol}//${location.host}`
         : 'http://localhost:8001');
+const DEFAULT_REGION = 'Seoul';
 
-document.addEventListener('DOMContentLoaded', async function() {
-    await initDiseaseOptions();
+document.addEventListener('DOMContentLoaded', initStatisticsPage);
+
+async function initStatisticsPage() {
     bindEvents();
-    await loadAndRenderStats();
-});
+    await loadDiseases();
+    await loadStats(); // 기본 선택 상태로 최초 조회
+}
 
-async function initDiseaseOptions() {
+function bindEvents() {
+    const diseaseSelect = document.getElementById('diseaseSelect');
+    const regionInput = document.getElementById('regionInput');
+    const loadButton = document.getElementById('loadButton');
+
+    if (diseaseSelect) diseaseSelect.addEventListener('change', loadStats);
+    if (regionInput) regionInput.addEventListener('change', loadStats);
+    if (loadButton) loadButton.addEventListener('click', loadStats);
+
+    // 뷰 토글 버튼(switchView 호출) 지원
+    window.switchView = function(viewType) {
+        const views = document.querySelectorAll('.chart-view');
+        views.forEach(v => v.classList.remove('active'));
+        const target = document.getElementById(viewType + 'View');
+        if (target) target.classList.add('active');
+
+        const buttons = document.querySelectorAll('.toggle-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        const btn = document.querySelector(`.toggle-btn[data-view="${viewType}"]`);
+        if (btn) btn.classList.add('active');
+    };
+}
+
+async function loadDiseases() {
     const select = document.getElementById('diseaseSelect');
     if (!select) return;
-    // 시도: /api/diseases 에서 옵션 채우기
+
     try {
-        const res = await fetch(`${API_BASE}/api/diseases?limit=50`);
-        if (!res.ok) throw new Error(`diseases API 실패 ${res.status}`);
+        toggleLoading(true);
+        const res = await fetch(`${API_BASE}/api/diseases?limit=200`);
+        if (!res.ok) throw new Error(`diseases API 실패: ${res.status}`);
         const data = await res.json();
         const diseases = Array.isArray(data.diseases) ? data.diseases : [];
         select.innerHTML = '';
         diseases.forEach(d => {
             const opt = document.createElement('option');
             opt.value = d.diseaseId || d.id || d.name;
-            opt.textContent = d.name || d.diseaseId;
+            opt.textContent = d.name || d.diseaseId || '알 수 없음';
             select.appendChild(opt);
         });
+        showMessage('');
     } catch (e) {
-        console.warn('diseases API 실패, 기본 목록 사용:', e);
-        const fallback = ['Influenza', 'Tuberculosis', 'Hepatitis A', 'Hepatitis B', 'Chickenpox'];
-        select.innerHTML = '';
-        fallback.forEach(name => {
-            const opt = document.createElement('option');
-            opt.value = name;
-            opt.textContent = name;
-            select.appendChild(opt);
-        });
+        console.error(e);
+        showMessage('감염병 목록을 불러오지 못했습니다.');
+    } finally {
+        toggleLoading(false);
     }
 }
 
-function bindEvents() {
-    const diseaseSelect = document.getElementById('diseaseSelect');
-    const regionSelect = document.getElementById('regionSelect');
-    const genderSelect = document.getElementById('genderFilter');
-    const ageSelect = document.getElementById('ageGroupFilter');
+async function loadStats() {
+    const diseaseId = getValue('diseaseSelect');
+    const region = getValue('regionInput') || DEFAULT_REGION;
+    const gender = getValue('genderFilter'); // 성별 셀렉트가 없을 수도 있음
+    const ageGroup = getValue('ageGroupFilter');
 
-    if (diseaseSelect) diseaseSelect.addEventListener('change', loadAndRenderStats);
-    if (regionSelect) regionSelect.addEventListener('change', loadAndRenderStats);
-    if (genderSelect) genderSelect.addEventListener('change', loadAndRenderStats);
-    if (ageSelect) ageSelect.addEventListener('change', loadAndRenderStats);
-}
-
-async function loadAndRenderStats() {
-    const diseaseId = getSelectValue('diseaseSelect');
-    const region = getSelectValue('regionSelect');
-    const gender = getSelectValue('genderFilter');
-    const ageGroup = getSelectValue('ageGroupFilter');
-
-    if (!diseaseId || !region) {
-        showError('감염병과 지역을 선택하세요.');
+    if (!diseaseId) {
+        showMessage('감염병을 선택하세요.');
+        clearLists();
         return;
     }
 
     try {
-        showLoading(true);
-        const stats = await fetchIncidenceStats({ diseaseId, region, gender, ageGroup });
-        renderYearSeries(stats);
-        renderGenderAge(stats);
-        showContent();
+        toggleLoading(true);
+        const stats = await fetchIncidence({ diseaseId, region, gender, ageGroup });
+        renderRegion(stats.byRegion || []);
+        renderGenderAge(stats.byGenderAge || []);
+        showMessage('');
+        console.log('Incidence stats:', stats);
     } catch (e) {
         console.error(e);
-        showError('통계를 불러오는 중 오류가 발생했습니다.');
+        showMessage('통계를 불러오는 중 오류가 발생했습니다.');
+        clearLists();
     } finally {
-        showLoading(false);
+        toggleLoading(false);
     }
 }
 
-function getSelectValue(id) {
-    const el = document.getElementById(id);
-    return el ? el.value : '';
-}
-
-async function fetchIncidenceStats({ diseaseId, region, year, gender, ageGroup }) {
+async function fetchIncidence({ diseaseId, region, year, gender, ageGroup }) {
     const params = new URLSearchParams({ diseaseId, region });
     if (year) params.set('year', String(year));
     if (gender) params.set('gender', gender);
     if (ageGroup) params.set('ageGroup', ageGroup);
 
     const res = await fetch(`${API_BASE}/api/stats/incidence?${params.toString()}`);
-    if (!res.ok) throw new Error(`통계 API 호출 실패: ${res.status}`);
+    if (!res.ok) throw new Error(`통계 API 실패: ${res.status}`);
     return await res.json();
 }
 
-function renderYearSeries(stats) {
-    const titleEl = document.getElementById('diseaseViewTitle');
-    const tbody = document.getElementById('diseaseTableBody');
-    if (titleEl) titleEl.textContent = `${stats.region || ''} 연도별 발생 통계`;
-    if (tbody) {
-        tbody.innerHTML = '';
-        const series = Array.isArray(stats.byRegion) ? stats.byRegion : [];
-        if (series.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="3">데이터가 없습니다.</td></tr>`;
-            return;
-        }
-        series.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.year ?? ''}</td>
-                <td>${row.caseCount != null ? row.caseCount.toLocaleString() : '-'}</td>
-                <td>${row.incidenceRate != null ? row.incidenceRate : '-'}%</td>
-            `;
-            tbody.appendChild(tr);
-        });
+function renderRegion(byRegion) {
+    const list = document.getElementById('statsRegionList');
+    if (!list) return;
+    if (!Array.isArray(byRegion) || byRegion.length === 0) {
+        list.innerHTML = `<li>데이터 없음</li>`;
+        return;
     }
+    list.innerHTML = byRegion
+        .map(
+            row =>
+                `${row.year ?? '-'}년 → 발생률 ${row.incidenceRate ?? '-'}%, 발생수 ${
+                    row.caseCount != null ? row.caseCount : '-'
+                }명`
+        )
+        .map(text => `<li>${text}</li>`)
+        .join('');
 }
 
-function renderGenderAge(stats) {
-    const titleEl = document.getElementById('genderViewTitle');
-    const tbody = document.getElementById('genderTableBody');
-    if (titleEl) titleEl.textContent = `${stats.region || ''} 성별·연령대 분포`;
-    if (tbody) {
-        tbody.innerHTML = '';
-        const breakdown = Array.isArray(stats.byGenderAge) ? stats.byGenderAge : [];
-        if (breakdown.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="4">데이터가 없습니다.</td></tr>`;
-            return;
-        }
-        breakdown.forEach(row => {
+function renderGenderAge(byGenderAge) {
+    const list = document.getElementById('statsGenderAgeList');
+    if (!list) return;
+    if (!Array.isArray(byGenderAge) || byGenderAge.length === 0) {
+        list.innerHTML = `<li>데이터 없음</li>`;
+        return;
+    }
+    list.innerHTML = byGenderAge
+        .map(row => {
             const genderLabel = row.gender || '-';
             const ageLabel = row.ageGroup || '-';
-            const caseCount = row.caseCount != null ? row.caseCount.toLocaleString() : '-';
-            const rate = row.incidenceRate != null ? row.incidenceRate : '-';
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${genderLabel}</td>
-                <td>${ageLabel}</td>
-                <td>${caseCount}</td>
-                <td>${rate}%</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }
+            const rate = row.incidenceRate ?? '-';
+            const count = row.caseCount != null ? row.caseCount : '-';
+            return `${genderLabel} / ${ageLabel} → 발생률 ${rate}%, ${count}명`;
+        })
+        .map(text => `<li>${text}</li>`)
+        .join('');
 }
 
-function showLoading(show) {
-    const el = document.getElementById('statsLoading');
-    if (el) el.style.display = show ? 'block' : 'none';
+function clearLists() {
+    const regionList = document.getElementById('statsRegionList');
+    const genderAgeList = document.getElementById('statsGenderAgeList');
+    if (regionList) regionList.innerHTML = '';
+    if (genderAgeList) genderAgeList.innerHTML = '';
 }
 
-function showError(msg) {
-    const err = document.getElementById('statsError');
-    if (err) {
-        err.style.display = 'block';
-        err.textContent = msg || '오류가 발생했습니다.';
-    }
-    showLoading(false);
-    hideContent();
+function toggleLoading(show) {
+    const loading = document.getElementById('loadingIndicator');
+    if (loading) loading.style.display = show ? 'block' : 'none';
 }
 
-function showContent() {
-    const err = document.getElementById('statsError');
-    const noData = document.getElementById('noStats');
-    if (err) err.style.display = 'none';
-    if (noData) noData.style.display = 'none';
+function showMessage(msg) {
+    const el = document.getElementById('statsMessage');
+    if (el) el.textContent = msg || '';
 }
 
-function hideContent() {
-    // 사용 중인 UI에 따라 추가 조정 가능
+function getValue(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
 }

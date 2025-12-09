@@ -12,6 +12,9 @@ class GraphDBClient:
     """
 
     def __init__(self, endpoint: str, username: Optional[str] = None, password: Optional[str] = None):
+        """
+        endpoint: full SPARQL endpoint URL including /repositories/{repo}
+        """
         self._endpoint = endpoint.rstrip("/")
         self._auth = (username, password) if username and password else None
         self._client = httpx.AsyncClient(timeout=30.0)
@@ -19,20 +22,21 @@ class GraphDBClient:
     async def query(self, sparql: str, variables: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Execute a SPARQL query and return parsed JSON results.
-        `variables` is merged into the POST body to allow bindings.
+        Raise a descriptive error if GraphDB responds with non-200.
         """
         payload: Dict[str, Any] = {"query": sparql}
         if variables:
             payload.update(variables)
 
-        response = await self._client.post(
+        resp = await self._client.post(
             self._endpoint,
             data=payload,
             headers={"Accept": "application/sparql-results+json"},
             auth=self._auth,
         )
-        response.raise_for_status()
-        return response.json()
+        if resp.status_code != 200:
+            raise RuntimeError(f"GraphDB query failed: {resp.status_code} {resp.text}")
+        return resp.json()
 
     async def close(self) -> None:
         await self._client.aclose()
