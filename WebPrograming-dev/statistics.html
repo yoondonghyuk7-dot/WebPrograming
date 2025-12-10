@@ -34,17 +34,25 @@
             <label for="diseaseSelect">감염병 선택:</label>
             <select id="diseaseSelect" onchange="onDiseaseChange()">
                 <option value="">감염병을 선택하세요</option>
-                <option value="수두">수두</option>
-                <option value="장티푸스">장티푸스</option>
-                <option value="인플루엔자">인플루엔자</option>
-                <option value="결핵">결핵</option>
                 <option value="A형간염">A형간염</option>
                 <option value="B형간염">B형간염</option>
                 <option value="C형간염">C형간염</option>
-                <option value="콜레라">콜레라</option>
+                <option value="b형헤모필루스인플루엔자">b형헤모필루스인플루엔자</option>
+                <option value="수두">수두</option>
+                <option value="신증후군출혈열">신증후군출혈열</option>
+                <option value="에볼라바이러스">에볼라바이러스</option>
                 <option value="유행성 뇌수막염">유행성 뇌수막염</option>
                 <option value="일본뇌염">일본뇌염</option>
-                <!-- TTL 데이터에서 추가로 채워짐 -->
+                <option value="장티푸스">장티푸스</option>
+                <option value="진드기매개뇌염">진드기매개뇌염</option>
+                <option value="쯔쯔가무시병">쯔쯔가무시병</option>
+                <option value="콜레라">콜레라</option>
+                <option value="폐렴구균 감염증">폐렴구균 감염증</option>
+                <option value="홍역">홍역</option>
+                <option value="말라리아">말라리아</option>
+                <option value="매독">매독</option>
+                <option value="발진티푸스">발진티푸스</option>
+                <option value="지방형 발진티푸스">지방형 발진티푸스</option>
             </select>
         </section>
 
@@ -69,15 +77,14 @@
             </div>
 
             <div id="genderView" class="chart-view">
-                <h2 id="genderViewTitle">성별 통계</h2>
+                <h2 id="genderViewTitle">성별/연령별 통계</h2>
                 <div class="table-container">
                     <table id="genderTable" class="statistics-table">
                         <thead>
                             <tr>
                                 <th>성별</th>
-                                <th>인구</th>
+                                <th>연령대</th>
                                 <th>발생 건수</th>
-                                <th>발생률 (%)</th>
                             </tr>
                         </thead>
                         <tbody id="genderTableBody">
@@ -85,11 +92,13 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="chart-container">
+                    <canvas id="genderChart"></canvas>
+                </div>
             </div>
         </section>
     </div>
 
-    <script src="scripts/ttlParser.js"></script>
     <script src="scripts/statistics.js"></script>
 </body>
 </html>

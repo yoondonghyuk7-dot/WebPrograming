@@ -46,23 +46,27 @@
             <p>증상을 분석하고 질병을 추천하는 중...</p>
         </div>
 
-        <!-- 1. 증상 키워드 분석 및 동의어 매핑 -->
+        <!-- 1. 증상 키워드 분석 및 동의어 매핑 (Semantic Search) -->
         <section class="analysis-section" id="analysisSection" style="display: none;">
             <h2 class="section-title">
                 <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                 </svg>
                 증상 키워드 분석
+                <span class="tech-badge">의미론적 검색</span>
             </h2>
             <div class="analysis-content">
-                <p class="analysis-description">입력하신 증상을 표준 의학 용어로 변환했습니다.</p>
+                <p class="analysis-description">
+                    <strong>SKOS 온톨로지</strong>를 활용하여 자연어를 표준 의학 용어로 변환했습니다.<br>
+                    <span class="data-flow">사용자 입력 → <code>skos:altLabel</code> → 표준 증상 URI</span>
+                </p>
                 <div class="keyword-tags" id="keywordTags">
                     <!-- 동의어 매핑된 키워드 태그들이 여기에 표시됩니다 -->
                 </div>
             </div>
         </section>
 
-        <!-- 2. 질병 추천 카드 리스트 -->
+        <!-- 2. 질병 추천 카드 리스트 (Knowledge Graph Reasoning) -->
         <section class="recommendations-section" id="recommendationsSection" style="display: none;">
             <h2 class="section-title">
                 <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -70,9 +74,13 @@
                     <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
                 추천 질병
+                <span class="tech-badge">지식 그래프 추론</span>
             </h2>
             <div class="recommendations-content">
-                <p class="recommendations-description">분석된 증상과 가장 유사한 질병들을 우선순위대로 추천합니다.</p>
+                <p class="recommendations-description">
+                    <strong>Jaccard Similarity</strong> 알고리즘으로 증상 집합 간의 유사도를 계산했습니다.<br>
+                    <span class="data-flow">증상 URI → <code>koid:symptom</code> → 질병 Entity → <code>schema:name</code> → 통계 데이터</span>
+                </p>
                 <div class="disease-cards-container" id="diseaseCardsContainer">
                     <!-- 질병 추천 카드들이 여기에 표시됩니다 -->
                 </div>
@@ -88,17 +96,6 @@
         </div>
     </div>
 
-    <!-- 상세 정보 모달 -->
-    <div id="detailModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody">
-                <!-- 상세 정보가 여기에 표시됩니다 -->
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts/ttlParser.js"></script>
     <script src="scripts/search-results.js"></script>
 </body>
 </html>

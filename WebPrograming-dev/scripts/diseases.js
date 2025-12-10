@@ -12,6 +12,23 @@ const INITIAL_DISPLAY_COUNT = 8;
 // 페이지 로드 시 API에서 감염병 데이터 로드
 document.addEventListener('DOMContentLoaded', async function() {
     await loadDiseasesFromAPI();
+
+    // URL 파라미터에서 disease 값 확인 (검색 결과 페이지에서 넘어온 경우)
+    const params = new URLSearchParams(window.location.search);
+    const targetDisease = params.get('disease');
+
+    if (targetDisease && diseases.length > 0) {
+        // 해당 질병 찾기
+        const disease = diseases.find(d =>
+            (d.name || d.nameKo || '').toLowerCase() === targetDisease.toLowerCase() ||
+            (d.nameKo || '').toLowerCase() === targetDisease.toLowerCase()
+        );
+
+        if (disease) {
+            // 약간의 지연 후 모달 표시 (렌더링 완료 후)
+            setTimeout(() => showDetail(disease), 100);
+        }
+    }
 });
 
 // API에서 감염병 데이터 로드
@@ -73,7 +90,16 @@ function renderDiseases(diseaseList) {
 
     container.innerHTML = '';
 
-    diseaseList.forEach(disease => {
+    // 질병 ID 기준 중복 제거
+    const seenIds = new Set();
+    const uniqueDiseases = diseaseList.filter(disease => {
+        const id = disease.id || disease.diseaseId;
+        if (!id || seenIds.has(id)) return false;
+        seenIds.add(id);
+        return true;
+    });
+
+    uniqueDiseases.forEach(disease => {
         const card = createDiseaseCard(disease);
         container.appendChild(card);
     });
@@ -263,6 +289,49 @@ function showDetail(disease) {
     // 근처 병원 버튼 표시 여부 (1급, 2급만)
     const showHospitalBtn = gradeType === 'grade1' || gradeType === 'grade2';
 
+    // 원문을 ? 기준으로 섹션 분리 (Q&A 형태로 파싱)
+    const descriptionSections = description.split('?').filter(s => s.trim());
+
+    // 요약 (첫 번째 질문+답변)
+    const summaryDesc = descriptionSections.length > 0
+        ? descriptionSections[0].trim() + '?'
+        : '설명이 없습니다.';
+
+    // 원문 전체 HTML (질문과 답변을 분리)
+    // 패턴: "A형간염이란? A형간염은... A형간염의 전파경로는? A형간염은..."
+    // 각 섹션에서 마지막 질문(~은?, ~는?)을 찾아서 분리
+    const fullDescHTML = descriptionSections.length > 1
+        ? descriptionSections.map((section, idx) => {
+            const trimmed = section.trim();
+
+            if (idx === descriptionSections.length - 1) {
+                // 마지막 섹션은 답변만 (질문 없음)
+                return `<div class="desc-section">
+                    <p class="desc-answer">${trimmed}</p>
+                </div>`;
+            }
+
+            // 다음 질문 찾기: 마지막에 나오는 "~이란", "~은", "~는" 등으로 시작하는 부분
+            // 예: "...가능합니다. A형간염의 전파경로는" -> 질문: "A형간염의 전파경로는?"
+            const questionMatch = trimmed.match(/([가-힣A-Za-z0-9\s]+(?:이란|의\s*[가-힣]+[은는]|[은는]))$/);
+
+            if (questionMatch) {
+                const answer = trimmed.slice(0, trimmed.length - questionMatch[1].length).trim();
+                const question = questionMatch[1].trim() + '?';
+
+                return `<div class="desc-section">
+                    ${answer ? `<p class="desc-answer">${answer}</p>` : ''}
+                    <h4 class="desc-question">${question}</h4>
+                </div>`;
+            } else {
+                // 질문 패턴을 못 찾으면 전체를 답변으로
+                return `<div class="desc-section">
+                    <p class="desc-answer">${trimmed}?</p>
+                </div>`;
+            }
+        }).join('')
+        : `<p>${description}</p>`;
+
     modalBody.innerHTML = `
         <div class="modal-header">
             <div class="modal-icon" style="color: ${iconColor}">${icon}</div>
@@ -279,7 +348,17 @@ function showDetail(disease) {
 
         <div class="detail-section">
             <h3>정의</h3>
-            <p>${definition}</p>
+            <p>${summaryDesc}</p>
+            ${descriptionSections.length > 1 ? `
+            <div class="full-description-toggle">
+                <button class="toggle-btn" onclick="toggleFullDescription(this)">
+                    <span class="toggle-icon">▶</span> 원문 전체 보기
+                </button>
+                <div class="full-description-content" style="display: none;">
+                    ${fullDescHTML}
+                </div>
+            </div>
+            ` : ''}
         </div>
 
         <div class="detail-section">
@@ -326,6 +405,22 @@ function showDetail(disease) {
     `;
 
     modal.style.display = 'block';
+}
+
+// 원문 전체보기 토글
+function toggleFullDescription(btn) {
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector('.toggle-icon');
+
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.textContent = '▼';
+        btn.childNodes[1].textContent = ' 원문 접기';
+    } else {
+        content.style.display = 'none';
+        icon.textContent = '▶';
+        btn.childNodes[1].textContent = ' 원문 전체 보기';
+    }
 }
 
 // 모달 닫기

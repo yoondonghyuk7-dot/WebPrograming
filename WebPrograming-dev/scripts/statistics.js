@@ -1,31 +1,25 @@
-// 통계 페이지: 텍스트 렌더링(그래프 없음) + 버튼/셀렉트 이벤트 정상화
+// 통계 페이지: 지역/성별 데이터 시각화
 
 const API_BASE =
     window.__API_BASE ||
     (location.port === '8001'
         ? `${location.protocol}//${location.host}`
         : 'http://localhost:8001');
-const DEFAULT_REGION = 'Seoul';
+
+let genderChart = null; // Chart.js 인스턴스 저장
+let currentView = 'disease'; // 현재 활성 뷰
 
 document.addEventListener('DOMContentLoaded', initStatisticsPage);
 
 async function initStatisticsPage() {
     bindEvents();
     await loadDiseases();
-    await loadStats(); // 기본 선택 상태로 최초 조회
 }
 
 function bindEvents() {
-    const diseaseSelect = document.getElementById('diseaseSelect');
-    const regionInput = document.getElementById('regionInput');
-    const loadButton = document.getElementById('loadButton');
-
-    if (diseaseSelect) diseaseSelect.addEventListener('change', loadStats);
-    if (regionInput) regionInput.addEventListener('change', loadStats);
-    if (loadButton) loadButton.addEventListener('click', loadStats);
-
-    // 뷰 토글 버튼(switchView 호출) 지원
+    // 뷰 토글 버튼
     window.switchView = function(viewType) {
+        currentView = viewType;
         const views = document.querySelectorAll('.chart-view');
         views.forEach(v => v.classList.remove('active'));
         const target = document.getElementById(viewType + 'View');
@@ -36,6 +30,17 @@ function bindEvents() {
         const btn = document.querySelector(`.toggle-btn[data-view="${viewType}"]`);
         if (btn) btn.classList.add('active');
     };
+
+    // 감염병 선택 이벤트
+    window.onDiseaseChange = async function() {
+        const diseaseId = getValue('diseaseSelect');
+        if (!diseaseId) {
+            clearAllData();
+            return;
+        }
+
+        await loadStatsByDisease(diseaseId);
+    };
 }
 
 async function loadDiseases() {
@@ -43,118 +48,225 @@ async function loadDiseases() {
     if (!select) return;
 
     try {
-        toggleLoading(true);
         const res = await fetch(`${API_BASE}/api/diseases?limit=200`);
         if (!res.ok) throw new Error(`diseases API 실패: ${res.status}`);
         const data = await res.json();
         const diseases = Array.isArray(data.diseases) ? data.diseases : [];
-        select.innerHTML = '';
+
+        // 기존 옵션 유지하고 API 데이터 추가
+        const existingOptions = Array.from(select.querySelectorAll('option[value!=""]'));
+        const existingNames = new Set(existingOptions.map(o => o.textContent));
+
         diseases.forEach(d => {
-            const opt = document.createElement('option');
-            opt.value = d.diseaseId || d.id || d.name;
-            opt.textContent = d.name || d.diseaseId || '알 수 없음';
-            select.appendChild(opt);
+            const name = d.name || d.diseaseId || '알 수 없음';
+            if (!existingNames.has(name)) {
+                const opt = document.createElement('option');
+                opt.value = name; // 질병 이름을 값으로 사용
+                opt.textContent = name;
+                select.appendChild(opt);
+            }
         });
-        showMessage('');
     } catch (e) {
         console.error(e);
-        showMessage('감염병 목록을 불러오지 못했습니다.');
-    } finally {
-        toggleLoading(false);
+        console.warn('감염병 목록을 불러오지 못했습니다. 기본 목록을 사용합니다.');
     }
 }
 
-async function loadStats() {
-    const diseaseId = getValue('diseaseSelect');
-    const region = getValue('regionInput') || DEFAULT_REGION;
-    const gender = getValue('genderFilter'); // 성별 셀렉트가 없을 수도 있음
-    const ageGroup = getValue('ageGroupFilter');
-
-    if (!diseaseId) {
-        showMessage('감염병을 선택하세요.');
-        clearLists();
-        return;
-    }
-
+async function loadStatsByDisease(diseaseId) {
     try {
-        toggleLoading(true);
-        const stats = await fetchIncidence({ diseaseId, region, gender, ageGroup });
-        renderRegion(stats.byRegion || []);
-        renderGenderAge(stats.byGenderAge || []);
-        showMessage('');
-        console.log('Incidence stats:', stats);
+        // 지역별 통계 로드
+        const regionRes = await fetch(`${API_BASE}/api/stats/by-region?diseaseId=${encodeURIComponent(diseaseId)}`);
+        if (!regionRes.ok) throw new Error(`지역별 통계 API 실패: ${regionRes.status}`);
+        const regionData = await regionRes.json();
+
+        // 성별/연령별 통계 로드
+        const genderRes = await fetch(`${API_BASE}/api/stats/by-gender-age?diseaseId=${encodeURIComponent(diseaseId)}`);
+        if (!genderRes.ok) throw new Error(`성별/연령별 통계 API 실패: ${genderRes.status}`);
+        const genderData = await genderRes.json();
+
+        // 데이터 렌더링
+        renderRegionTable(regionData.regions || []);
+        renderGenderAgeTable(genderData.data || []);
+        renderGenderChart(genderData.data || []);
+
+        // 타이틀 업데이트
+        updateViewTitles(diseaseId);
     } catch (e) {
         console.error(e);
-        showMessage('통계를 불러오는 중 오류가 발생했습니다.');
-        clearLists();
-    } finally {
-        toggleLoading(false);
+        alert('통계 데이터를 불러오는 중 오류가 발생했습니다.');
+        clearAllData();
     }
 }
 
-async function fetchIncidence({ diseaseId, region, year, gender, ageGroup }) {
-    const params = new URLSearchParams({ diseaseId, region });
-    if (year) params.set('year', String(year));
-    if (gender) params.set('gender', gender);
-    if (ageGroup) params.set('ageGroup', ageGroup);
+function renderRegionTable(regions) {
+    const tbody = document.getElementById('diseaseTableBody');
+    if (!tbody) return;
 
-    const res = await fetch(`${API_BASE}/api/stats/incidence?${params.toString()}`);
-    if (!res.ok) throw new Error(`통계 API 실패: ${res.status}`);
-    return await res.json();
-}
-
-function renderRegion(byRegion) {
-    const list = document.getElementById('statsRegionList');
-    if (!list) return;
-    if (!Array.isArray(byRegion) || byRegion.length === 0) {
-        list.innerHTML = `<li>데이터 없음</li>`;
+    if (!Array.isArray(regions) || regions.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3">데이터가 없습니다</td></tr>';
         return;
     }
-    list.innerHTML = byRegion
-        .map(
-            row =>
-                `${row.year ?? '-'}년 → 발생률 ${row.incidenceRate ?? '-'}%, 발생수 ${
-                    row.caseCount != null ? row.caseCount : '-'
-                }명`
-        )
-        .map(text => `<li>${text}</li>`)
-        .join('');
+
+    tbody.innerHTML = regions.map(row => {
+        const region = row.region || '-';
+        const caseCount = row.caseCount != null ? row.caseCount : '-';
+        const incidenceRate = row.incidenceRate != null ? row.incidenceRate.toFixed(2) : '-';
+
+        return `
+            <tr>
+                <td>${region}</td>
+                <td>${caseCount}</td>
+                <td>${incidenceRate}</td>
+            </tr>
+        `;
+    }).join('');
 }
 
-function renderGenderAge(byGenderAge) {
-    const list = document.getElementById('statsGenderAgeList');
-    if (!list) return;
-    if (!Array.isArray(byGenderAge) || byGenderAge.length === 0) {
-        list.innerHTML = `<li>데이터 없음</li>`;
+function renderGenderAgeTable(data) {
+    const tbody = document.getElementById('genderTableBody');
+    if (!tbody) return;
+
+    if (!Array.isArray(data) || data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3">데이터가 없습니다</td></tr>';
         return;
     }
-    list.innerHTML = byGenderAge
-        .map(row => {
-            const genderLabel = row.gender || '-';
-            const ageLabel = row.ageGroup || '-';
-            const rate = row.incidenceRate ?? '-';
-            const count = row.caseCount != null ? row.caseCount : '-';
-            return `${genderLabel} / ${ageLabel} → 발생률 ${rate}%, ${count}명`;
-        })
-        .map(text => `<li>${text}</li>`)
-        .join('');
+
+    tbody.innerHTML = data.map(row => {
+        const gender = row.gender || '-';
+        const ageRange = row.ageRange || '-';
+        const caseCount = row.caseCount != null ? row.caseCount : '-';
+
+        return `
+            <tr>
+                <td>${gender}</td>
+                <td>${ageRange}</td>
+                <td>${caseCount}</td>
+            </tr>
+        `;
+    }).join('');
 }
 
-function clearLists() {
-    const regionList = document.getElementById('statsRegionList');
-    const genderAgeList = document.getElementById('statsGenderAgeList');
-    if (regionList) regionList.innerHTML = '';
-    if (genderAgeList) genderAgeList.innerHTML = '';
+function renderGenderChart(data) {
+    const canvas = document.getElementById('genderChart');
+    if (!canvas) return;
+
+    // 기존 차트 제거
+    if (genderChart) {
+        genderChart.destroy();
+        genderChart = null;
+    }
+
+    if (!Array.isArray(data) || data.length === 0) {
+        return;
+    }
+
+    // 성별/연령대별로 데이터 그룹화
+    const maleData = {};
+    const femaleData = {};
+    const ageRanges = new Set();
+
+    data.forEach(row => {
+        const gender = (row.gender || '').toLowerCase();
+        const ageRange = row.ageRange || '';
+        const caseCount = row.caseCount || 0;
+
+        ageRanges.add(ageRange);
+
+        // female을 먼저 체크해야 함 ('female'.includes('male') === true 이므로)
+        if (gender === 'female' || gender === '여성') {
+            femaleData[ageRange] = caseCount;
+        } else if (gender === 'male' || gender === '남성') {
+            maleData[ageRange] = caseCount;
+        }
+    });
+
+    const sortedAgeRanges = Array.from(ageRanges).sort();
+
+    const chartData = {
+        labels: sortedAgeRanges,
+        datasets: [
+            {
+                label: '남성',
+                data: sortedAgeRanges.map(age => maleData[age] || 0),
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: '여성',
+                data: sortedAgeRanges.map(age => femaleData[age] || 0),
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    const ctx = canvas.getContext('2d');
+    genderChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: '발생 건수'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: '연령대'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: '성별/연령별 발생 건수'
+                }
+            }
+        }
+    });
 }
 
-function toggleLoading(show) {
-    const loading = document.getElementById('loadingIndicator');
-    if (loading) loading.style.display = show ? 'block' : 'none';
+function updateViewTitles(diseaseId) {
+    const diseaseViewTitle = document.getElementById('diseaseViewTitle');
+    const genderViewTitle = document.getElementById('genderViewTitle');
+
+    if (diseaseViewTitle) {
+        diseaseViewTitle.textContent = `${diseaseId} - 지역별 통계`;
+    }
+    if (genderViewTitle) {
+        genderViewTitle.textContent = `${diseaseId} - 성별/연령별 통계`;
+    }
 }
 
-function showMessage(msg) {
-    const el = document.getElementById('statsMessage');
-    if (el) el.textContent = msg || '';
+function clearAllData() {
+    const diseaseTableBody = document.getElementById('diseaseTableBody');
+    const genderTableBody = document.getElementById('genderTableBody');
+
+    if (diseaseTableBody) diseaseTableBody.innerHTML = '';
+    if (genderTableBody) genderTableBody.innerHTML = '';
+
+    if (genderChart) {
+        genderChart.destroy();
+        genderChart = null;
+    }
+
+    const diseaseViewTitle = document.getElementById('diseaseViewTitle');
+    const genderViewTitle = document.getElementById('genderViewTitle');
+
+    if (diseaseViewTitle) diseaseViewTitle.textContent = '감염병별 통계';
+    if (genderViewTitle) genderViewTitle.textContent = '성별/연령별 통계';
 }
 
 function getValue(id) {

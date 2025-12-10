@@ -1,0 +1,95 @@
+{
+  "diseaseId": "수두",
+  "data": [
+    {
+      "gender": "female",
+      "ageRange": "0~9세",
+      "caseCount": 32074
+    },
+    {
+      "gender": "female",
+      "ageRange": "10~19세",
+      "caseCount": 19387
+    },
+    {
+      "gender": "female",
+      "ageRange": "20~29세",
+      "caseCount": 2853
+    },
+    {
+      "gender": "female",
+      "ageRange": "30~39세",
+      "caseCount": 1905
+    },
+    {
+      "gender": "female",
+      "ageRange": "40~49세",
+      "caseCount": 947
+    },
+    {
+      "gender": "female",
+      "ageRange": "50~59세",
+      "caseCount": 596
+    },
+    {
+      "gender": "female",
+      "ageRange": "60~69세",
+      "caseCount": 332
+    },
+    {
+      "gender": "female",
+      "ageRange": "70세 이상",
+      "caseCount": 296
+    },
+    {
+      "gender": "female",
+      "ageRange": "연령미상",
+      "caseCount": 22
+    },
+    {
+      "gender": "male",
+      "ageRange": "0~9세",
+      "caseCount": 33160
+    },
+    {
+      "gender": "male",
+      "ageRange": "10~19세",
+      "caseCount": 28063
+    },
+    {
+      "gender": "male",
+      "ageRange": "20~29세",
+      "caseCount": 3007
+    },
+    {
+      "gender": "male",
+      "ageRange": "30~39세",
+      "caseCount": 1527
+    },
+    {
+      "gender": "male",
+      "ageRange": "40~49세",
+      "caseCount": 967
+    },
+    {
+      "gender": "male",
+      "ageRange": "50~59세",
+      "caseCount": 552
+    },
+    {
+      "gender": "male",
+      "ageRange": "60~69세",
+      "caseCount": 335
+    },
+    {
+      "gender": "male",
+      "ageRange": "70세 이상",
+      "caseCount": 280
+    },
+    {
+      "gender": "male",
+      "ageRange": "연령미상",
+      "caseCount": 35
+    }
+  ]
+}

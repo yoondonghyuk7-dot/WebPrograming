@@ -1,0 +1,17 @@
+검색어: 배가 많이 아프고 열이 엄청나고 기침이 나고 어지럽고 의식이 혼란함
+
+토큰: []
+
+매핑된 증상 (4개):
+  원본: 배가 → 표준: 발열
+  URI: http://knowledgemap.kr/koid/concept/symptom/f15b4a40d1ea468c66010f3fbd61690e
+
+  원본: 배가 → 표준: 복통
+  URI: http://knowledgemap.kr/koid/concept/symptom/0c39ec22d1af03f9cf3616da100553ab
+
+  원본: 기침 → 표준: 기침
+  URI: http://knowledgemap.kr/koid/concept/symptom/ae6cb4e5801fa03f43d30359fa70ee77
+
+  원본: 의식 → 표준: 의식혼란
+  URI: http://knowledgemap.kr/koid/concept/symptom/4ab3ff867a16a6244eafe88a389e278f
+

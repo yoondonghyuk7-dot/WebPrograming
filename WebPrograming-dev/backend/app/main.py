@@ -10,10 +10,10 @@ app = FastAPI(
     description="Backend API for the infection insights frontend, backed by GraphDB.",
 )
 
-# Allow calls from the static frontend (typically served on :8000)
+# Allow calls from the static frontend (served on :8000, API on :8001)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8000", "http://127.0.0.1:8000"],
+    allow_origins=["http://localhost:8000", "http://127.0.0.1:8000", "http://localhost:8001", "http://127.0.0.1:8001"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

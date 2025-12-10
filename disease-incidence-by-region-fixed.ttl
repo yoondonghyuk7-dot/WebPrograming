@@ -1,0 +1,2915 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix koid: <http://knowledgemap.kr/koid/def/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ===== 지역 개념 정의 =====
+
+<http://knowledgemap.kr/koid/id/location_busan> a skos:Concept ;
+    skos:prefLabel "Busan"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_daegu> a skos:Concept ;
+    skos:prefLabel "Daegu"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_daejeon> a skos:Concept ;
+    skos:prefLabel "Daejeon"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_gangwon> a skos:Concept ;
+    skos:prefLabel "Gangwon Province"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_gwangju> a skos:Concept ;
+    skos:prefLabel "Gwangju"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_gyeonggi> a skos:Concept ;
+    skos:prefLabel "Gyeonggi Province"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_incheon> a skos:Concept ;
+    skos:prefLabel "Incheon"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_jeju> a skos:Concept ;
+    skos:prefLabel "Jeju Province"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_north_chungcheong> a skos:Concept ;
+    skos:prefLabel "North Chungcheong"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_north_gyeongsang> a skos:Concept ;
+    skos:prefLabel "North Gyeongsang"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_north_jeolla> a skos:Concept ;
+    skos:prefLabel "North Jeolla"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_sejong> a skos:Concept ;
+    skos:prefLabel "Sejong"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_seoul> a skos:Concept ;
+    skos:prefLabel "Seoul"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_south_chungcheong> a skos:Concept ;
+    skos:prefLabel "South Chungcheong"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_south_gyeongsang> a skos:Concept ;
+    skos:prefLabel "South Gyeongsang"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_south_jeolla> a skos:Concept ;
+    skos:prefLabel "South Jeolla"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_south_korea> a skos:Concept ;
+    skos:prefLabel "South Korea"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+<http://knowledgemap.kr/koid/id/location_ulsan> a skos:Concept ;
+    skos:prefLabel "Ulsan"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/location> .
+
+# ===== 질병 개념 정의 =====
+
+<http://knowledgemap.kr/koid/id/disease_ebolavirus> a skos:Concept ;
+    skos:prefLabel "Ebolavirus"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> a skos:Concept ;
+    skos:prefLabel "Haemophilus influenzae type B infection"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> a skos:Concept ;
+    skos:prefLabel "Japanese encephalitis"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> a skos:Concept ;
+    skos:prefLabel "Pneumococcal disease"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_chickenpox> a skos:Concept ;
+    skos:prefLabel "chickenpox"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_cholera> a skos:Concept ;
+    skos:prefLabel "cholera"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_endemic_typhus> a skos:Concept ;
+    skos:prefLabel "endemic typhus"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> a skos:Concept ;
+    skos:prefLabel "hemorrhagic fever with renal syndrome"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_hepatitis_a> a skos:Concept ;
+    skos:prefLabel "hepatitis A"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_hepatitis_b> a skos:Concept ;
+    skos:prefLabel "hepatitis B"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_hepatitis_c> a skos:Concept ;
+    skos:prefLabel "hepatitis C"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_malaria> a skos:Concept ;
+    skos:prefLabel "malaria"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_measles> a skos:Concept ;
+    skos:prefLabel "measles"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_meningococcal_disease> a skos:Concept ;
+    skos:prefLabel "meningococcal disease"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_scrub_typhus> a skos:Concept ;
+    skos:prefLabel "scrub typhus"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_syphilis> a skos:Concept ;
+    skos:prefLabel "syphilis"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> a skos:Concept ;
+    skos:prefLabel "tick-borne encephalitis"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_typhoid_fever> a skos:Concept ;
+    skos:prefLabel "typhoid fever"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+<http://knowledgemap.kr/koid/id/disease_typhus> a skos:Concept ;
+    skos:prefLabel "typhus"@en ;
+    skos:inScheme <http://knowledgemap.kr/koid/scheme/disease> .
+
+# ===== 통계 데이터 =====
+
+# ===== chickenpox - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "5801"^^xsd:int ;
+    koid:incidenceRate "172.34"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_busan_1" .
+
+# ===== chickenpox - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "6069"^^xsd:int ;
+    koid:incidenceRate "252.68"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_daegu_1" .
+
+# ===== chickenpox - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "2659"^^xsd:int ;
+    koid:incidenceRate "182.64"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_daejeon_1" .
+
+# ===== chickenpox - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3262"^^xsd:int ;
+    koid:incidenceRate "211.79"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_gangwon_1" .
+
+# ===== chickenpox - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3272"^^xsd:int ;
+    koid:incidenceRate "226.44"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_gwangju_1" .
+
+# ===== chickenpox - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "30129"^^xsd:int ;
+    koid:incidenceRate "223.41"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_gyeonggi_1" .
+
+# ===== chickenpox - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "4583"^^xsd:int ;
+    koid:incidenceRate "155.69"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_incheon_1" .
+
+# ===== chickenpox - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3126"^^xsd:int ;
+    koid:incidenceRate "462.78"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_jeju_1" .
+
+# ===== chickenpox - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3664"^^xsd:int ;
+    koid:incidenceRate "229.25"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_north_chungcheong_1" .
+
+# ===== chickenpox - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "5844"^^xsd:int ;
+    koid:incidenceRate "222.14"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_north_gyeongsang_1" .
+
+# ===== chickenpox - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3564"^^xsd:int ;
+    koid:incidenceRate "198.55"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_north_jeolla_1" .
+
+# ===== chickenpox - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "1003"^^xsd:int ;
+    koid:incidenceRate "275.93"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_sejong_1" .
+
+# ===== chickenpox - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "12292"^^xsd:int ;
+    koid:incidenceRate "128.34"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_seoul_1" .
+
+# ===== chickenpox - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "3762"^^xsd:int ;
+    koid:incidenceRate "177.63"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_south_chungcheong_1" .
+
+# ===== chickenpox - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "8317"^^xsd:int ;
+    koid:incidenceRate "250.06"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_south_gyeongsang_1" .
+
+# ===== chickenpox - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "4907"^^xsd:int ;
+    koid:incidenceRate "266.7"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_south_jeolla_1" .
+
+# ===== chickenpox - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "104868"^^xsd:int ;
+    koid:incidenceRate "202.86"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_south_korea_1" .
+
+# ===== chickenpox - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_chickenpox_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_chickenpox> ;
+    koid:caseCount "2614"^^xsd:int ;
+    koid:incidenceRate "231.75"^^xsd:double ;
+    dcterms:identifier "stat_chickenpox_ulsan_1" .
+
+# ===== cholera - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_busan_1" .
+
+# ===== cholera - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_daegu_1" .
+
+# ===== cholera - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_daejeon_1" .
+
+# ===== cholera - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_gangwon_1" .
+
+# ===== cholera - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_gwangju_1" .
+
+# ===== cholera - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_gyeonggi_1" .
+
+# ===== cholera - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_incheon_1" .
+
+# ===== cholera - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_jeju_1" .
+
+# ===== cholera - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_north_chungcheong_1" .
+
+# ===== cholera - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_north_gyeongsang_1" .
+
+# ===== cholera - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_north_jeolla_1" .
+
+# ===== cholera - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_sejong_1" .
+
+# ===== cholera - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_seoul_1" .
+
+# ===== cholera - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_south_chungcheong_1" .
+
+# ===== cholera - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_south_gyeongsang_1" .
+
+# ===== cholera - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_south_jeolla_1" .
+
+# ===== cholera - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_south_korea_1" .
+
+# ===== cholera - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_cholera_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_cholera> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_cholera_ulsan_1" .
+
+# ===== Ebolavirus - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_busan_1" .
+
+# ===== Ebolavirus - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_daegu_1" .
+
+# ===== Ebolavirus - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_daejeon_1" .
+
+# ===== Ebolavirus - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_gangwon_1" .
+
+# ===== Ebolavirus - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_gwangju_1" .
+
+# ===== Ebolavirus - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_gyeonggi_1" .
+
+# ===== Ebolavirus - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_incheon_1" .
+
+# ===== Ebolavirus - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_jeju_1" .
+
+# ===== Ebolavirus - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_north_chungcheong_1" .
+
+# ===== Ebolavirus - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_north_gyeongsang_1" .
+
+# ===== Ebolavirus - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_north_jeolla_1" .
+
+# ===== Ebolavirus - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_sejong_1" .
+
+# ===== Ebolavirus - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_seoul_1" .
+
+# ===== Ebolavirus - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_south_chungcheong_1" .
+
+# ===== Ebolavirus - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_south_gyeongsang_1" .
+
+# ===== Ebolavirus - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_south_jeolla_1" .
+
+# ===== Ebolavirus - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_south_korea_1" .
+
+# ===== Ebolavirus - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_ebolavirus_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_ebolavirus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_ebolavirus_ulsan_1" .
+
+# ===== endemic typhus - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.12"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_busan_1" .
+
+# ===== endemic typhus - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.21"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_daegu_1" .
+
+# ===== endemic typhus - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.07"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_daejeon_1" .
+
+# ===== endemic typhus - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_gangwon_1" .
+
+# ===== endemic typhus - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_gwangju_1" .
+
+# ===== endemic typhus - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "21"^^xsd:int ;
+    koid:incidenceRate "0.16"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_gyeonggi_1" .
+
+# ===== endemic typhus - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "13"^^xsd:int ;
+    koid:incidenceRate "0.44"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_incheon_1" .
+
+# ===== endemic typhus - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.15"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_jeju_1" .
+
+# ===== endemic typhus - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "3"^^xsd:int ;
+    koid:incidenceRate "0.19"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_north_chungcheong_1" .
+
+# ===== endemic typhus - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.08"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_north_gyeongsang_1" .
+
+# ===== endemic typhus - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "6"^^xsd:int ;
+    koid:incidenceRate "0.33"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_north_jeolla_1" .
+
+# ===== endemic typhus - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.29"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_sejong_1" .
+
+# ===== endemic typhus - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "8"^^xsd:int ;
+    koid:incidenceRate "0.08"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_seoul_1" .
+
+# ===== endemic typhus - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.24"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_south_chungcheong_1" .
+
+# ===== endemic typhus - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "10"^^xsd:int ;
+    koid:incidenceRate "0.3"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_south_gyeongsang_1" .
+
+# ===== endemic typhus - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "7"^^xsd:int ;
+    koid:incidenceRate "0.38"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_south_jeolla_1" .
+
+# ===== endemic typhus - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "103"^^xsd:int ;
+    koid:incidenceRate "0.2"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_south_korea_1" .
+
+# ===== endemic typhus - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_endemic_typhus_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_endemic_typhus> ;
+    koid:caseCount "16"^^xsd:int ;
+    koid:incidenceRate "1.4"^^xsd:double ;
+    dcterms:identifier "stat_endemic_typhus_ulsan_1" .
+
+# ===== Haemophilus influenzae type B infection - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_haemophilus_influenzae_type_b_infection_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.07"^^xsd:double ;
+    dcterms:identifier "stat_haemophilus_influenzae_type_b_infection_gwangju_1" .
+
+# ===== Haemophilus influenzae type B infection - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_haemophilus_influenzae_type_b_infection_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.01"^^xsd:double ;
+    dcterms:identifier "stat_haemophilus_influenzae_type_b_infection_gyeonggi_1" .
+
+# ===== Haemophilus influenzae type B infection - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_haemophilus_influenzae_type_b_infection_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.04"^^xsd:double ;
+    dcterms:identifier "stat_haemophilus_influenzae_type_b_infection_north_gyeongsang_1" .
+
+# ===== Haemophilus influenzae type B infection - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_haemophilus_influenzae_type_b_infection_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.03"^^xsd:double ;
+    dcterms:identifier "stat_haemophilus_influenzae_type_b_infection_south_gyeongsang_1" .
+
+# ===== Haemophilus influenzae type B infection - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_haemophilus_influenzae_type_b_infection_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_haemophilus_influenzae_type_b_infection> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.01"^^xsd:double ;
+    dcterms:identifier "stat_haemophilus_influenzae_type_b_infection_south_korea_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "41"^^xsd:int ;
+    koid:incidenceRate "1.25"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_busan_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "23"^^xsd:int ;
+    koid:incidenceRate "0.96"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_daegu_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "27"^^xsd:int ;
+    koid:incidenceRate "1.85"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_daejeon_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "67"^^xsd:int ;
+    koid:incidenceRate "4.35"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_gangwon_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "24"^^xsd:int ;
+    koid:incidenceRate "1.66"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_gwangju_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "183"^^xsd:int ;
+    koid:incidenceRate "1.36"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_gyeonggi_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "14"^^xsd:int ;
+    koid:incidenceRate "0.48"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_incheon_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "17"^^xsd:int ;
+    koid:incidenceRate "2.52"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_jeju_1" .
+
+# ===== hemorrhagic fever with renal syndrome - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "37"^^xsd:int ;
+    koid:incidenceRate "2.31"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_north_chungcheong_1" .
+
+# ===== hemorrhagic fever with renal syndrome - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "89"^^xsd:int ;
+    koid:incidenceRate "3.38"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_north_gyeongsang_1" .
+
+# ===== hemorrhagic fever with renal syndrome - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "162"^^xsd:int ;
+    koid:incidenceRate "9.02"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_north_jeolla_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "9"^^xsd:int ;
+    koid:incidenceRate "2.47"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_sejong_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "28"^^xsd:int ;
+    koid:incidenceRate "0.31"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_seoul_1" .
+
+# ===== hemorrhagic fever with renal syndrome - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "237"^^xsd:int ;
+    koid:incidenceRate "11.23"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_south_chungcheong_1" .
+
+# ===== hemorrhagic fever with renal syndrome - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "150"^^xsd:int ;
+    koid:incidenceRate "4.54"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_south_gyeongsang_1" .
+
+# ===== hemorrhagic fever with renal syndrome - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "249"^^xsd:int ;
+    koid:incidenceRate "13.52"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_south_jeolla_1" .
+
+# ===== hemorrhagic fever with renal syndrome - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "1367"^^xsd:int ;
+    koid:incidenceRate "2.65"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_south_korea_1" .
+
+# ===== hemorrhagic fever with renal syndrome - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_hemorrhagic_fever_with_renal_syndrome_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hemorrhagic_fever_with_renal_syndrome> ;
+    koid:caseCount "10"^^xsd:int ;
+    koid:incidenceRate "0.89"^^xsd:double ;
+    dcterms:identifier "stat_hemorrhagic_fever_with_renal_syndrome_ulsan_1" .
+
+# ===== hepatitis A - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "226"^^xsd:int ;
+    koid:incidenceRate "6.85"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_busan_1" .
+
+# ===== hepatitis A - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "197"^^xsd:int ;
+    koid:incidenceRate "8.33"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_daegu_1" .
+
+# ===== hepatitis A - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "204"^^xsd:int ;
+    koid:incidenceRate "14.2"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_daejeon_1" .
+
+# ===== hepatitis A - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "159"^^xsd:int ;
+    koid:incidenceRate "10.39"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_gangwon_1" .
+
+# ===== hepatitis A - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "151"^^xsd:int ;
+    koid:incidenceRate "10.58"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_gwangju_1" .
+
+# ===== hepatitis A - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "1875"^^xsd:int ;
+    koid:incidenceRate "14.0"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_gyeonggi_1" .
+
+# ===== hepatitis A - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "361"^^xsd:int ;
+    koid:incidenceRate "12.29"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_incheon_1" .
+
+# ===== hepatitis A - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "115"^^xsd:int ;
+    koid:incidenceRate "17.02"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_jeju_1" .
+
+# ===== hepatitis A - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "249"^^xsd:int ;
+    koid:incidenceRate "15.7"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_north_chungcheong_1" .
+
+# ===== hepatitis A - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "243"^^xsd:int ;
+    koid:incidenceRate "9.3"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_north_gyeongsang_1" .
+
+# ===== hepatitis A - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "387"^^xsd:int ;
+    koid:incidenceRate "21.61"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_north_jeolla_1" .
+
+# ===== hepatitis A - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "40"^^xsd:int ;
+    koid:incidenceRate "10.99"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_sejong_1" .
+
+# ===== hepatitis A - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "1029"^^xsd:int ;
+    koid:incidenceRate "10.78"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_seoul_1" .
+
+# ===== hepatitis A - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "311"^^xsd:int ;
+    koid:incidenceRate "14.9"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_south_chungcheong_1" .
+
+# ===== hepatitis A - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "170"^^xsd:int ;
+    koid:incidenceRate "5.11"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_south_gyeongsang_1" .
+
+# ===== hepatitis A - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "185"^^xsd:int ;
+    koid:incidenceRate "10.04"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_south_jeolla_1" .
+
+# ===== hepatitis A - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "5977"^^xsd:int ;
+    koid:incidenceRate "11.64"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_south_korea_1" .
+
+# ===== hepatitis A - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_a_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_a> ;
+    koid:caseCount "75"^^xsd:int ;
+    koid:incidenceRate "6.64"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_a_ulsan_1" .
+
+# ===== hepatitis B - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "66"^^xsd:int ;
+    koid:incidenceRate "1.99"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_busan_1" .
+
+# ===== hepatitis B - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "41"^^xsd:int ;
+    koid:incidenceRate "1.71"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_daegu_1" .
+
+# ===== hepatitis B - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "38"^^xsd:int ;
+    koid:incidenceRate "2.61"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_daejeon_1" .
+
+# ===== hepatitis B - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "33"^^xsd:int ;
+    koid:incidenceRate "2.14"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_gangwon_1" .
+
+# ===== hepatitis B - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "27"^^xsd:int ;
+    koid:incidenceRate "1.87"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_gwangju_1" .
+
+# ===== hepatitis B - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "342"^^xsd:int ;
+    koid:incidenceRate "2.54"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_gyeonggi_1" .
+
+# ===== hepatitis B - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "72"^^xsd:int ;
+    koid:incidenceRate "2.48"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_incheon_1" .
+
+# ===== hepatitis B - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "16"^^xsd:int ;
+    koid:incidenceRate "2.37"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_jeju_1" .
+
+# ===== hepatitis B - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "34"^^xsd:int ;
+    koid:incidenceRate "2.19"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_north_chungcheong_1" .
+
+# ===== hepatitis B - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "50"^^xsd:int ;
+    koid:incidenceRate "1.9"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_north_gyeongsang_1" .
+
+# ===== hepatitis B - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "52"^^xsd:int ;
+    koid:incidenceRate "2.9"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_north_jeolla_1" .
+
+# ===== hepatitis B - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "3"^^xsd:int ;
+    koid:incidenceRate "0.82"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_sejong_1" .
+
+# ===== hepatitis B - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "164"^^xsd:int ;
+    koid:incidenceRate "1.71"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_seoul_1" .
+
+# ===== hepatitis B - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "63"^^xsd:int ;
+    koid:incidenceRate "3.02"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_south_chungcheong_1" .
+
+# ===== hepatitis B - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "76"^^xsd:int ;
+    koid:incidenceRate "2.28"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_south_gyeongsang_1" .
+
+# ===== hepatitis B - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "58"^^xsd:int ;
+    koid:incidenceRate "3.15"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_south_jeolla_1" .
+
+# ===== hepatitis B - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "1155"^^xsd:int ;
+    koid:incidenceRate "2.24"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_south_korea_1" .
+
+# ===== hepatitis B - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_b_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_b> ;
+    koid:caseCount "20"^^xsd:int ;
+    koid:incidenceRate "1.77"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_b_ulsan_1" .
+
+# ===== hepatitis C - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "5143"^^xsd:int ;
+    koid:incidenceRate "151.14"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_busan_1" .
+
+# ===== hepatitis C - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "1484"^^xsd:int ;
+    koid:incidenceRate "61.12"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_daegu_1" .
+
+# ===== hepatitis C - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "716"^^xsd:int ;
+    koid:incidenceRate "48.73"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_daejeon_1" .
+
+# ===== hepatitis C - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "703"^^xsd:int ;
+    koid:incidenceRate "45.59"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_gangwon_1" .
+
+# ===== hepatitis C - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "1097"^^xsd:int ;
+    koid:incidenceRate "75.49"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_gwangju_1" .
+
+# ===== hepatitis C - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "7473"^^xsd:int ;
+    koid:incidenceRate "56.05"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_gyeonggi_1" .
+
+# ===== hepatitis C - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "3008"^^xsd:int ;
+    koid:incidenceRate "101.97"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_incheon_1" .
+
+# ===== hepatitis C - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "468"^^xsd:int ;
+    koid:incidenceRate "69.56"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_jeju_1" .
+
+# ===== hepatitis C - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "735"^^xsd:int ;
+    koid:incidenceRate "45.93"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_north_chungcheong_1" .
+
+# ===== hepatitis C - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "1969"^^xsd:int ;
+    koid:incidenceRate "74.23"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_north_gyeongsang_1" .
+
+# ===== hepatitis C - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "1154"^^xsd:int ;
+    koid:incidenceRate "63.7"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_north_jeolla_1" .
+
+# ===== hepatitis C - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "99"^^xsd:int ;
+    koid:incidenceRate "28.43"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_sejong_1" .
+
+# ===== hepatitis C - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "5856"^^xsd:int ;
+    koid:incidenceRate "60.38"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_seoul_1" .
+
+# ===== hepatitis C - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "1424"^^xsd:int ;
+    koid:incidenceRate "67.09"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_south_chungcheong_1" .
+
+# ===== hepatitis C - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "3939"^^xsd:int ;
+    koid:incidenceRate "117.53"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_south_gyeongsang_1" .
+
+# ===== hepatitis C - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "2569"^^xsd:int ;
+    koid:incidenceRate "138.11"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_south_jeolla_1" .
+
+# ===== hepatitis C - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "38616"^^xsd:int ;
+    koid:incidenceRate "74.49"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_south_korea_1" .
+
+# ===== hepatitis C - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_hepatitis_c_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_hepatitis_c> ;
+    koid:caseCount "778"^^xsd:int ;
+    koid:incidenceRate "68.13"^^xsd:double ;
+    dcterms:identifier "stat_hepatitis_c_ulsan_1" .
+
+# ===== Japanese encephalitis - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.17"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_daegu_1" .
+
+# ===== Japanese encephalitis - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "6"^^xsd:int ;
+    koid:incidenceRate "0.39"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_gangwon_1" .
+
+# ===== Japanese encephalitis - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.07"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_gwangju_1" .
+
+# ===== Japanese encephalitis - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "18"^^xsd:int ;
+    koid:incidenceRate "0.14"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_gyeonggi_1" .
+
+# ===== Japanese encephalitis - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.17"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_incheon_1" .
+
+# ===== Japanese encephalitis - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.13"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_north_chungcheong_1" .
+
+# ===== Japanese encephalitis - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.19"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_north_gyeongsang_1" .
+
+# ===== Japanese encephalitis - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "9"^^xsd:int ;
+    koid:incidenceRate "0.09"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_seoul_1" .
+
+# ===== Japanese encephalitis - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.05"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_south_chungcheong_1" .
+
+# ===== Japanese encephalitis - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.03"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_south_gyeongsang_1" .
+
+# ===== Japanese encephalitis - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.05"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_south_jeolla_1" .
+
+# ===== Japanese encephalitis - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_japanese_encephalitis_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_japanese_encephalitis> ;
+    koid:caseCount "53"^^xsd:int ;
+    koid:incidenceRate "0.1"^^xsd:double ;
+    dcterms:identifier "stat_japanese_encephalitis_south_korea_1" .
+
+# ===== malaria - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "30"^^xsd:int ;
+    koid:incidenceRate "0.88"^^xsd:double ;
+    dcterms:identifier "stat_malaria_busan_1" .
+
+# ===== malaria - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "19"^^xsd:int ;
+    koid:incidenceRate "0.78"^^xsd:double ;
+    dcterms:identifier "stat_malaria_daegu_1" .
+
+# ===== malaria - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "27"^^xsd:int ;
+    koid:incidenceRate "1.84"^^xsd:double ;
+    dcterms:identifier "stat_malaria_daejeon_1" .
+
+# ===== malaria - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "111"^^xsd:int ;
+    koid:incidenceRate "7.2"^^xsd:double ;
+    dcterms:identifier "stat_malaria_gangwon_1" .
+
+# ===== malaria - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "10"^^xsd:int ;
+    koid:incidenceRate "0.69"^^xsd:double ;
+    dcterms:identifier "stat_malaria_gwangju_1" .
+
+# ===== malaria - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "1571"^^xsd:int ;
+    koid:incidenceRate "11.78"^^xsd:double ;
+    dcterms:identifier "stat_malaria_gyeonggi_1" .
+
+# ===== malaria - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "475"^^xsd:int ;
+    koid:incidenceRate "16.1"^^xsd:double ;
+    dcterms:identifier "stat_malaria_incheon_1" .
+
+# ===== malaria - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.59"^^xsd:double ;
+    dcterms:identifier "stat_malaria_jeju_1" .
+
+# ===== malaria - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "14"^^xsd:int ;
+    koid:incidenceRate "0.87"^^xsd:double ;
+    dcterms:identifier "stat_malaria_north_chungcheong_1" .
+
+# ===== malaria - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "22"^^xsd:int ;
+    koid:incidenceRate "0.83"^^xsd:double ;
+    dcterms:identifier "stat_malaria_north_gyeongsang_1" .
+
+# ===== malaria - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "21"^^xsd:int ;
+    koid:incidenceRate "1.16"^^xsd:double ;
+    dcterms:identifier "stat_malaria_north_jeolla_1" .
+
+# ===== malaria - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "3"^^xsd:int ;
+    koid:incidenceRate "0.86"^^xsd:double ;
+    dcterms:identifier "stat_malaria_sejong_1" .
+
+# ===== malaria - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "364"^^xsd:int ;
+    koid:incidenceRate "3.75"^^xsd:double ;
+    dcterms:identifier "stat_malaria_seoul_1" .
+
+# ===== malaria - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "28"^^xsd:int ;
+    koid:incidenceRate "1.32"^^xsd:double ;
+    dcterms:identifier "stat_malaria_south_chungcheong_1" .
+
+# ===== malaria - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "16"^^xsd:int ;
+    koid:incidenceRate "0.48"^^xsd:double ;
+    dcterms:identifier "stat_malaria_south_gyeongsang_1" .
+
+# ===== malaria - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "45"^^xsd:int ;
+    koid:incidenceRate "2.42"^^xsd:double ;
+    dcterms:identifier "stat_malaria_south_jeolla_1" .
+
+# ===== malaria - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "2774"^^xsd:int ;
+    koid:incidenceRate "5.35"^^xsd:double ;
+    dcterms:identifier "stat_malaria_south_korea_1" .
+
+# ===== malaria - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_malaria_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_malaria> ;
+    koid:caseCount "14"^^xsd:int ;
+    koid:incidenceRate "1.23"^^xsd:double ;
+    dcterms:identifier "stat_malaria_ulsan_1" .
+
+# ===== measles - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.12"^^xsd:double ;
+    dcterms:identifier "stat_measles_busan_1" .
+
+# ===== measles - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.12"^^xsd:double ;
+    dcterms:identifier "stat_measles_daegu_1" .
+
+# ===== measles - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.55"^^xsd:double ;
+    dcterms:identifier "stat_measles_gwangju_1" .
+
+# ===== measles - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.18"^^xsd:double ;
+    dcterms:identifier "stat_measles_gyeonggi_1" .
+
+# ===== measles - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.14"^^xsd:double ;
+    dcterms:identifier "stat_measles_incheon_1" .
+
+# ===== measles - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.38"^^xsd:double ;
+    dcterms:identifier "stat_measles_north_chungcheong_1" .
+
+# ===== measles - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "21"^^xsd:int ;
+    koid:incidenceRate "0.95"^^xsd:double ;
+    dcterms:identifier "stat_measles_north_gyeongsang_1" .
+
+# ===== measles - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "7"^^xsd:int ;
+    koid:incidenceRate "0.25"^^xsd:double ;
+    dcterms:identifier "stat_measles_seoul_1" .
+
+# ===== measles - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.3"^^xsd:double ;
+    dcterms:identifier "stat_measles_south_gyeongsang_1" .
+
+# ===== measles - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "8"^^xsd:int ;
+    koid:incidenceRate "0.6"^^xsd:double ;
+    dcterms:identifier "stat_measles_south_jeolla_1" .
+
+# ===== measles - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_measles_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_measles> ;
+    koid:caseCount "53"^^xsd:int ;
+    koid:incidenceRate "0.25"^^xsd:double ;
+    dcterms:identifier "stat_measles_south_korea_1" .
+
+# ===== meningococcal disease - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.03"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_busan_1" .
+
+# ===== meningococcal disease - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.08"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_daegu_1" .
+
+# ===== meningococcal disease - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.06"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_gangwon_1" .
+
+# ===== meningococcal disease - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.14"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_gwangju_1" .
+
+# ===== meningococcal disease - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "18"^^xsd:int ;
+    koid:incidenceRate "0.13"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_gyeonggi_1" .
+
+# ===== meningococcal disease - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.06"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_north_chungcheong_1" .
+
+# ===== meningococcal disease - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "12"^^xsd:int ;
+    koid:incidenceRate "0.13"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_seoul_1" .
+
+# ===== meningococcal disease - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.05"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_south_chungcheong_1" .
+
+# ===== meningococcal disease - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.03"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_south_gyeongsang_1" .
+
+# ===== meningococcal disease - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_meningococcal_disease_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_meningococcal_disease> ;
+    koid:caseCount "39"^^xsd:int ;
+    koid:incidenceRate "0.08"^^xsd:double ;
+    dcterms:identifier "stat_meningococcal_disease_south_korea_1" .
+
+# ===== Pneumococcal disease - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "74"^^xsd:int ;
+    koid:incidenceRate "2.2"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_busan_1" .
+
+# ===== Pneumococcal disease - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "65"^^xsd:int ;
+    koid:incidenceRate "2.71"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_daegu_1" .
+
+# ===== Pneumococcal disease - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "32"^^xsd:int ;
+    koid:incidenceRate "2.19"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_daejeon_1" .
+
+# ===== Pneumococcal disease - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "53"^^xsd:int ;
+    koid:incidenceRate "3.44"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_gangwon_1" .
+
+# ===== Pneumococcal disease - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "36"^^xsd:int ;
+    koid:incidenceRate "2.49"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_gwangju_1" .
+
+# ===== Pneumococcal disease - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "444"^^xsd:int ;
+    koid:incidenceRate "3.29"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_gyeonggi_1" .
+
+# ===== Pneumococcal disease - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "135"^^xsd:int ;
+    koid:incidenceRate "4.58"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_incheon_1" .
+
+# ===== Pneumococcal disease - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "40"^^xsd:int ;
+    koid:incidenceRate "5.92"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_jeju_1" .
+
+# ===== Pneumococcal disease - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "50"^^xsd:int ;
+    koid:incidenceRate "3.13"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_north_chungcheong_1" .
+
+# ===== Pneumococcal disease - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "58"^^xsd:int ;
+    koid:incidenceRate "2.2"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_north_gyeongsang_1" .
+
+# ===== Pneumococcal disease - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "49"^^xsd:int ;
+    koid:incidenceRate "2.73"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_north_jeolla_1" .
+
+# ===== Pneumococcal disease - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "10"^^xsd:int ;
+    koid:incidenceRate "2.75"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_sejong_1" .
+
+# ===== Pneumococcal disease - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "329"^^xsd:int ;
+    koid:incidenceRate "3.43"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_seoul_1" .
+
+# ===== Pneumococcal disease - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "56"^^xsd:int ;
+    koid:incidenceRate "2.64"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_south_chungcheong_1" .
+
+# ===== Pneumococcal disease - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "102"^^xsd:int ;
+    koid:incidenceRate "3.07"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_south_gyeongsang_1" .
+
+# ===== Pneumococcal disease - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "49"^^xsd:int ;
+    koid:incidenceRate "2.66"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_south_jeolla_1" .
+
+# ===== Pneumococcal disease - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "1601"^^xsd:int ;
+    koid:incidenceRate "3.09"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_south_korea_1" .
+
+# ===== Pneumococcal disease - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_pneumococcal_disease_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_pneumococcal_disease> ;
+    koid:caseCount "19"^^xsd:int ;
+    koid:incidenceRate "1.68"^^xsd:double ;
+    dcterms:identifier "stat_pneumococcal_disease_ulsan_1" .
+
+# ===== scrub typhus - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "1900"^^xsd:int ;
+    koid:incidenceRate "55.83"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_busan_1" .
+
+# ===== scrub typhus - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "634"^^xsd:int ;
+    koid:incidenceRate "26.11"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_daegu_1" .
+
+# ===== scrub typhus - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "749"^^xsd:int ;
+    koid:incidenceRate "50.97"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_daejeon_1" .
+
+# ===== scrub typhus - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "117"^^xsd:int ;
+    koid:incidenceRate "7.59"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_gangwon_1" .
+
+# ===== scrub typhus - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "851"^^xsd:int ;
+    koid:incidenceRate "58.56"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_gwangju_1" .
+
+# ===== scrub typhus - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "1792"^^xsd:int ;
+    koid:incidenceRate "13.44"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_gyeonggi_1" .
+
+# ===== scrub typhus - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "290"^^xsd:int ;
+    koid:incidenceRate "9.83"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_incheon_1" .
+
+# ===== scrub typhus - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "272"^^xsd:int ;
+    koid:incidenceRate "40.43"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_jeju_1" .
+
+# ===== scrub typhus - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "607"^^xsd:int ;
+    koid:incidenceRate "37.93"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_north_chungcheong_1" .
+
+# ===== scrub typhus - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "1807"^^xsd:int ;
+    koid:incidenceRate "68.12"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_north_gyeongsang_1" .
+
+# ===== scrub typhus - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "3182"^^xsd:int ;
+    koid:incidenceRate "175.65"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_north_jeolla_1" .
+
+# ===== scrub typhus - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "176"^^xsd:int ;
+    koid:incidenceRate "50.55"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_sejong_1" .
+
+# ===== scrub typhus - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "648"^^xsd:int ;
+    koid:incidenceRate "6.68"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_seoul_1" .
+
+# ===== scrub typhus - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "3260"^^xsd:int ;
+    koid:incidenceRate "153.6"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_south_chungcheong_1" .
+
+# ===== scrub typhus - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "5742"^^xsd:int ;
+    koid:incidenceRate "171.33"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_south_gyeongsang_1" .
+
+# ===== scrub typhus - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "4948"^^xsd:int ;
+    koid:incidenceRate "266.0"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_south_jeolla_1" .
+
+# ===== scrub typhus - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "28192"^^xsd:int ;
+    koid:incidenceRate "54.38"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_south_korea_1" .
+
+# ===== scrub typhus - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_scrub_typhus_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_scrub_typhus> ;
+    koid:caseCount "1217"^^xsd:int ;
+    koid:incidenceRate "106.57"^^xsd:double ;
+    dcterms:identifier "stat_scrub_typhus_ulsan_1" .
+
+# ===== syphilis - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "380"^^xsd:int ;
+    koid:incidenceRate "11.17"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_busan_1" .
+
+# ===== syphilis - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "191"^^xsd:int ;
+    koid:incidenceRate "7.87"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_daegu_1" .
+
+# ===== syphilis - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "99"^^xsd:int ;
+    koid:incidenceRate "6.74"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_daejeon_1" .
+
+# ===== syphilis - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "90"^^xsd:int ;
+    koid:incidenceRate "5.84"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_gangwon_1" .
+
+# ===== syphilis - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "111"^^xsd:int ;
+    koid:incidenceRate "7.64"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_gwangju_1" .
+
+# ===== syphilis - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "1159"^^xsd:int ;
+    koid:incidenceRate "8.69"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_gyeonggi_1" .
+
+# ===== syphilis - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "303"^^xsd:int ;
+    koid:incidenceRate "10.27"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_incheon_1" .
+
+# ===== syphilis - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "54"^^xsd:int ;
+    koid:incidenceRate "8.03"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_jeju_1" .
+
+# ===== syphilis - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "119"^^xsd:int ;
+    koid:incidenceRate "7.44"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_north_chungcheong_1" .
+
+# ===== syphilis - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "168"^^xsd:int ;
+    koid:incidenceRate "6.33"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_north_gyeongsang_1" .
+
+# ===== syphilis - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "139"^^xsd:int ;
+    koid:incidenceRate "7.67"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_north_jeolla_1" .
+
+# ===== syphilis - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "26"^^xsd:int ;
+    koid:incidenceRate "7.47"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_sejong_1" .
+
+# ===== syphilis - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "1254"^^xsd:int ;
+    koid:incidenceRate "12.93"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_seoul_1" .
+
+# ===== syphilis - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "215"^^xsd:int ;
+    koid:incidenceRate "10.13"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_south_chungcheong_1" .
+
+# ===== syphilis - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "196"^^xsd:int ;
+    koid:incidenceRate "5.85"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_south_gyeongsang_1" .
+
+# ===== syphilis - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "123"^^xsd:int ;
+    koid:incidenceRate "6.61"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_south_jeolla_1" .
+
+# ===== syphilis - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "4695"^^xsd:int ;
+    koid:incidenceRate "9.06"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_south_korea_1" .
+
+# ===== syphilis - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_syphilis_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_syphilis> ;
+    koid:caseCount "68"^^xsd:int ;
+    koid:incidenceRate "5.95"^^xsd:double ;
+    dcterms:identifier "stat_syphilis_ulsan_1" .
+
+# ===== tick-borne encephalitis - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_busan_1" .
+
+# ===== tick-borne encephalitis - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_daegu_1" .
+
+# ===== tick-borne encephalitis - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_daejeon_1" .
+
+# ===== tick-borne encephalitis - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_gangwon_1" .
+
+# ===== tick-borne encephalitis - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_gwangju_1" .
+
+# ===== tick-borne encephalitis - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_gyeonggi_1" .
+
+# ===== tick-borne encephalitis - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_incheon_1" .
+
+# ===== tick-borne encephalitis - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_jeju_1" .
+
+# ===== tick-borne encephalitis - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_north_chungcheong_1" .
+
+# ===== tick-borne encephalitis - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_north_gyeongsang_1" .
+
+# ===== tick-borne encephalitis - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_north_jeolla_1" .
+
+# ===== tick-borne encephalitis - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_sejong_1" .
+
+# ===== tick-borne encephalitis - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_seoul_1" .
+
+# ===== tick-borne encephalitis - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_south_chungcheong_1" .
+
+# ===== tick-borne encephalitis - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_south_gyeongsang_1" .
+
+# ===== tick-borne encephalitis - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_south_jeolla_1" .
+
+# ===== tick-borne encephalitis - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_south_korea_1" .
+
+# ===== tick-borne encephalitis - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_tick_borne_encephalitis_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_tick_borne_encephalitis> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_tick_borne_encephalitis_ulsan_1" .
+
+# ===== typhoid fever - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "16"^^xsd:int ;
+    koid:incidenceRate "0.47"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_busan_1" .
+
+# ===== typhoid fever - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.12"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_daegu_1" .
+
+# ===== typhoid fever - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "3"^^xsd:int ;
+    koid:incidenceRate "0.27"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_daejeon_1" .
+
+# ===== typhoid fever - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "1"^^xsd:int ;
+    koid:incidenceRate "0.06"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_gangwon_1" .
+
+# ===== typhoid fever - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.28"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_gwangju_1" .
+
+# ===== typhoid fever - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "16"^^xsd:int ;
+    koid:incidenceRate "0.18"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_gyeonggi_1" .
+
+# ===== typhoid fever - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "7"^^xsd:int ;
+    koid:incidenceRate "0.34"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_incheon_1" .
+
+# ===== typhoid fever - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "2"^^xsd:int ;
+    koid:incidenceRate "0.19"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_north_chungcheong_1" .
+
+# ===== typhoid fever - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "13"^^xsd:int ;
+    koid:incidenceRate "0.49"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_north_gyeongsang_1" .
+
+# ===== typhoid fever - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "3"^^xsd:int ;
+    koid:incidenceRate "0.22"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_north_jeolla_1" .
+
+# ===== typhoid fever - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "13"^^xsd:int ;
+    koid:incidenceRate "0.2"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_seoul_1" .
+
+# ===== typhoid fever - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.19"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_south_chungcheong_1" .
+
+# ===== typhoid fever - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "9"^^xsd:int ;
+    koid:incidenceRate "0.33"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_south_gyeongsang_1" .
+
+# ===== typhoid fever - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "5"^^xsd:int ;
+    koid:incidenceRate "0.27"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_south_jeolla_1" .
+
+# ===== typhoid fever - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "102"^^xsd:int ;
+    koid:incidenceRate "0.24"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_south_korea_1" .
+
+# ===== typhoid fever - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_typhoid_fever_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhoid_fever> ;
+    koid:caseCount "4"^^xsd:int ;
+    koid:incidenceRate "0.44"^^xsd:double ;
+    dcterms:identifier "stat_typhoid_fever_ulsan_1" .
+
+# ===== typhus - Busan =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_busan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_busan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_busan_1" .
+
+# ===== typhus - Daegu =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_daegu_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daegu> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_daegu_1" .
+
+# ===== typhus - Daejeon =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_daejeon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_daejeon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_daejeon_1" .
+
+# ===== typhus - Gangwon Province =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_gangwon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gangwon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_gangwon_1" .
+
+# ===== typhus - Gwangju =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_gwangju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gwangju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_gwangju_1" .
+
+# ===== typhus - Gyeonggi Province =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_gyeonggi_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_gyeonggi> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_gyeonggi_1" .
+
+# ===== typhus - Incheon =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_incheon_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_incheon> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_incheon_1" .
+
+# ===== typhus - Jeju Province =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_jeju_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_jeju> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_jeju_1" .
+
+# ===== typhus - North Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_north_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_north_chungcheong_1" .
+
+# ===== typhus - North Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_north_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_north_gyeongsang_1" .
+
+# ===== typhus - North Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_north_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_north_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_north_jeolla_1" .
+
+# ===== typhus - Sejong =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_sejong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_sejong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_sejong_1" .
+
+# ===== typhus - Seoul =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_seoul_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_seoul> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_seoul_1" .
+
+# ===== typhus - South Chungcheong =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_south_chungcheong_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_chungcheong> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_south_chungcheong_1" .
+
+# ===== typhus - South Gyeongsang =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_south_gyeongsang_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_gyeongsang> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_south_gyeongsang_1" .
+
+# ===== typhus - South Jeolla =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_south_jeolla_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_jeolla> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_south_jeolla_1" .
+
+# ===== typhus - South Korea =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_south_korea_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_south_korea> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_south_korea_1" .
+
+# ===== typhus - Ulsan =====
+
+<http://knowledgemap.kr/koid/id/stat_typhus_ulsan_1> a koid:IncidenceStatistic ;
+    schema:location <http://knowledgemap.kr/koid/id/location_ulsan> ;
+    schema:name <http://knowledgemap.kr/koid/id/disease_typhus> ;
+    koid:caseCount "0"^^xsd:int ;
+    koid:incidenceRate "0.0"^^xsd:double ;
+    dcterms:identifier "stat_typhus_ulsan_1" .
+

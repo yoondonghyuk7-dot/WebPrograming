@@ -2,191 +2,83 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
 
-# 증상 매핑 (OpenRefine으로 생성, 동의어 포함)
+# 증상 매핑 (OpenRefine으로 생성)
 
-# 증상 Concept 정의 (동의어 포함)
+# 증상 Concept 정의
 <http://knowledgemap.kr/koid/concept/symptom/6444e8ca321d010201749bcab24b2086> a skos:Concept ;
     skos:prefLabel "발열"@ko ;
-    skos:altLabel "열"@ko ;
-    skos:altLabel "열남"@ko ;
-    skos:altLabel "열이 남"@ko ;
-    skos:altLabel "고열"@ko ;
-    skos:altLabel "체온 상승"@ko ;
-    skos:altLabel "열 오름"@ko ;
-    skos:altLabel "미열"@ko ;
-    skos:altLabel "열난 느낌"@ko ;
-    skos:altLabel "몸이 뜨거움"@ko ;
-    skos:altLabel "열감"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/36c8e179e2787311f1c2cbbdbfa5c09e> a skos:Concept ;
     skos:prefLabel "피로감"@ko ;
-    skos:altLabel "피곤함"@ko ;
-    skos:altLabel "기운 없음"@ko ;
-    skos:altLabel "힘이 없다"@ko ;
-    skos:altLabel "몸이 무거움"@ko ;
-    skos:altLabel "피곤해요"@ko ;
-    skos:altLabel "피로 증상"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/ce4cc189d75dcc99e2cfb43945d34f36> a skos:Concept ;
     skos:prefLabel "구토"@ko ;
-    skos:altLabel "토함"@ko ;
-    skos:altLabel "토할 것 같음"@ko ;
-    skos:altLabel "메스꺼움"@ko ;
-    skos:altLabel "구역질"@ko ;
-    skos:altLabel "토했어요"@ko ;
-    skos:altLabel "구토 증상"@ko ;
-    skos:altLabel "속이 울렁거림"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/0c39ec22d1af03f9cf3616da100553ab> a skos:Concept ;
     skos:prefLabel "복통"@ko ;
-    skos:altLabel "배아픔"@ko ;
-    skos:altLabel "배가 아파요"@ko ;
-    skos:altLabel "복부 통증"@ko ;
-    skos:altLabel "속이 쥐어짜짐"@ko ;
-    skos:altLabel "속이 아픔"@ko ;
-    skos:altLabel "배가 뒤틀림"@ko ;
-    skos:altLabel "변이 묽음"@ko ;
-    skos:altLabel "배 설사"@ko ;
-    skos:altLabel "잦은 배변"@ko ;
-    skos:altLabel "물설사"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/4513cc89b14cb0b57785f0a507d60f32> a skos:Concept ;
     skos:prefLabel "황달"@ko ;
-    skos:altLabel "피부가 노랗게 변함"@ko ;
-    skos:altLabel "눈이 노래짐"@ko ;
-    skos:altLabel "황색 피부"@ko ;
-    skos:altLabel "피부 노랗다"@ko ;
-    skos:altLabel "눈동자 노랗다"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/2707812156d0375c58acedb51706278e> a skos:Concept ;
     skos:prefLabel "기침"@ko ;
-    skos:altLabel "콜록거림"@ko ;
-    skos:altLabel "기침 남"@ko ;
-    skos:altLabel "기침이 계속됨"@ko ;
-    skos:altLabel "기침 소리"@ko ;
-    skos:altLabel "기침 증상"@ko ;
-    skos:altLabel "기침 발작"@ko ;
-    skos:altLabel "밥맛 없음"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/7f8c3ba6e77c2e2dcbbbf2aaab377860> a skos:Concept ;
     skos:prefLabel "가래"@ko ;
-    skos:altLabel "가래 낌"@ko ;
-    skos:altLabel "가래가 많음"@ko ;
-    skos:altLabel "가래 뱉음"@ko ;
-    skos:altLabel "목에 가래 낌"@ko ;
-    skos:altLabel "가래 끓음"@ko ;
-    skos:altLabel "가래 나옴"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/178b82a0fba4764139622a292c3894be> a skos:Concept ;
     skos:prefLabel "호흡곤란"@ko ;
-    skos:altLabel "숨이 차다"@ko ;
-    skos:altLabel "숨쉬기 힘듦"@ko ;
-    skos:altLabel "호흡이 어려움"@ko ;
-    skos:altLabel "숨 가쁨"@ko ;
-    skos:altLabel "숨막힘"@ko ;
-    skos:altLabel "답답함"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/ac38aeaed869d2eb0ee50aad31d3cfbd> a skos:Concept ;
     skos:prefLabel "오한"@ko ;
-    skos:altLabel "추워짐"@ko ;
-    skos:altLabel "몸이 떨림"@ko ;
-    skos:altLabel "춥고 떨림"@ko ;
-    skos:altLabel "추운 느낌"@ko ;
-    skos:altLabel "몸이 으슬으슬함"@ko ;
-    skos:altLabel "머리가 깨질 듯함"@ko ;
-    skos:altLabel "두통이 심함"@ko ;
-    skos:altLabel "머리 띵함"@ko ;
-    skos:altLabel "머리 욱신거림"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/254ce42ef8de7c532b693a885824b50d> a skos:Concept ;
     skos:prefLabel "발진"@ko ;
-    skos:altLabel "붉은 반점"@ko ;
-    skos:altLabel "피부 발진"@ko ;
-    skos:altLabel "두드러기"@ko ;
-    skos:altLabel "붉게 돋음"@ko ;
-    skos:altLabel "피부에 뭐 남"@ko ;
-    skos:altLabel "피부 트러블"@ko ;
-    skos:altLabel "근육이 뭉침"@ko ;
-    skos:altLabel "몸살"@ko ;
-    skos:altLabel "몸 전체가 아픔"@ko ;
-    skos:altLabel "근육이 쑤심"@ko ;
-    skos:altLabel "몸이 결림"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/89d76ca78fb25aa70cb9e09eeeb00239> a skos:Concept ;
     skos:prefLabel "인두통"@ko ;
-    skos:altLabel "목 아픔"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/f9b1c4346b8579ae2adf8e28b972dce0> a skos:Concept ;
     skos:prefLabel "설사"@ko ;
-    skos:altLabel "무른 변"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/3e2a172264e4f21ec328a8305da69e04> a skos:Concept ;
     skos:prefLabel "두통"@ko ;
-    skos:altLabel "머리 아픔"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/3d48405bf654057ef27befa2c21498c1> a skos:Concept ;
     skos:prefLabel "근육통"@ko ;
-    skos:altLabel "근육 아픔"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/738b29cdd4a3840f7b85d601862ced63> a skos:Concept ;
     skos:prefLabel "가려움"@ko ;
-    skos:altLabel "가렵다"@ko ;
-    skos:altLabel "가려워요"@ko ;
-    skos:altLabel "간지러움"@ko ;
-    skos:altLabel "간지럽다"@ko ;
-    skos:altLabel "가려운 증상"@ko ;
-    skos:altLabel "피부 간지러움"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/7456fdd982017c543b12127505c1170e> a skos:Concept ;
     skos:prefLabel "오심"@ko ;
-    skos:altLabel "메스꺼움"@ko ;
-    skos:altLabel "속 울렁거림"@ko ;
-    skos:altLabel "구역감"@ko ;
-    skos:altLabel "속이 미식거림"@ko ;
-    skos:altLabel "토할 것 같음"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/ddf7e80a6f258b52e925a9b12c540a75> a skos:Concept ;
     skos:prefLabel "의식혼란"@ko ;
-    skos:altLabel "정신 멍함"@ko ;
-    skos:altLabel "혼미함"@ko ;
-    skos:altLabel "정신이 없음"@ko ;
-    skos:altLabel "헷갈림"@ko ;
-    skos:altLabel "정신착란"@ko ;
-    skos:altLabel "의식 흐림"@ko ;
-    skos:altLabel "먹기 싫음"@ko ;
-    skos:altLabel "식욕 저하"@ko ;
-    skos:altLabel "음식이 안 넘어감"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/20c68fb7fb773c27dec9b9a1d17da725> a skos:Concept ;
     skos:prefLabel "식욕부진"@ko ;
-    skos:altLabel "입맛 없음"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 <http://knowledgemap.kr/koid/concept/symptom/8ff344d4b981486f3dd4e8719706ff25> a skos:Concept ;
     skos:prefLabel "마비"@ko ;
-    skos:altLabel "저림"@ko ;
-    skos:altLabel "저린 느낌"@ko ;
-    skos:altLabel "감각 저하"@ko ;
-    skos:altLabel "움직이기 힘듦"@ko ;
-    skos:altLabel "신체 마비"@ko ;
-    skos:altLabel "손발 저림"@ko ;
     skos:broader <http://knowledgemap.kr/koid/concept_class/symptom> .
 
 # 감염병 - 증상 매핑

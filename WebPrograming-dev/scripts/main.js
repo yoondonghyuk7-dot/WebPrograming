@@ -1,18 +1,25 @@
-// 검색 기능 및 빠른 검색 태그
+// 검색 기능 및 현재 위치 기반 지역 감지
 document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('searchForm');
     const searchBtn = document.querySelector('.search-btn');
     const searchInput = document.getElementById('searchInput');
     const infoCloseBtn = document.getElementById('infoCloseBtn');
-    
+
+    // 현재 위치 기반 지역 저장 변수
+    let userRegion = '';
+
+    // 페이지 로드 시 현재 위치 가져오기
+    getUserLocation();
+
     // 검색 제출
     if (searchForm) {
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            performSearch(searchInput.value);
+            const query = searchInput.value;
+            performSearch(query, userRegion);
         });
     }
-    
+
     // 정보 배너 닫기
     if (infoCloseBtn) {
         infoCloseBtn.addEventListener('click', function() {
@@ -20,11 +27,64 @@ document.addEventListener('DOMContentLoaded', function() {
             infoBanner.style.display = 'none';
         });
     }
-    
-    function performSearch(query) {
+
+    function getUserLocation() {
+        if (navigator.geolocation && typeof kakao !== 'undefined' && kakao.maps) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+
+                    // 카카오맵 좌표 → 주소 변환
+                    const geocoder = new kakao.maps.services.Geocoder();
+
+                    geocoder.coord2Address(lng, lat, function(result, status) {
+                        if (status === kakao.maps.services.Status.OK && result[0]) {
+                            const address = result[0].address;
+                            userRegion = extractRegionName(address.region_1depth_name);
+                            console.log('현재 위치 지역:', userRegion);
+                        }
+                    });
+                },
+                function(error) {
+                    console.log('위치 정보를 가져올 수 없습니다:', error);
+                }
+            );
+        }
+    }
+
+    function extractRegionName(region1depth) {
+        // "서울특별시" → "서울", "경기도" → "경기" 등으로 변환
+        const regionMap = {
+            '서울특별시': '서울',
+            '부산광역시': '부산',
+            '대구광역시': '대구',
+            '인천광역시': '인천',
+            '광주광역시': '광주',
+            '대전광역시': '대전',
+            '울산광역시': '울산',
+            '세종특별자치시': '세종',
+            '경기도': '경기',
+            '강원도': '강원',
+            '충청북도': '충북',
+            '충청남도': '충남',
+            '전라북도': '전북',
+            '전라남도': '전남',
+            '경상북도': '경북',
+            '경상남도': '경남',
+            '제주특별자치도': '제주'
+        };
+        return regionMap[region1depth] || region1depth;
+    }
+
+    function performSearch(query, region) {
         if (query.trim()) {
-            // 검색 결과 페이지로 이동
-            window.location.href = `search-results.html?q=${encodeURIComponent(query.trim())}`;
+            // 검색 결과 페이지로 이동 (지역 정보 포함)
+            let url = `search-results.html?q=${encodeURIComponent(query.trim())}`;
+            if (region) {
+                url += `&region=${encodeURIComponent(region)}`;
+            }
+            window.location.href = url;
         }
     }
 });

@@ -1,0 +1,149 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema:   <http://schema.org/> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix koid:     <http://knowledgemap.kr/koid/def/> .
+
+#################################################################
+# 온톨로지 헤더
+#################################################################
+
+koid:InfectionOntology a owl:Ontology ;
+  rdfs:label "KOID Infectious Disease Ontology"@en ;
+  dcterms:description "감염병, 의료기관, 통계 데이터를 연결하기 위한 통합 KOID 온톨로지 TBox 정의"@ko .
+
+#################################################################
+# 1. 감염병 (Infectious Disease) 관련 클래스 및 속성
+#################################################################
+
+# 감염병 클래스
+koid:InfectiousDisease a owl:Class ;
+  rdfs:label "감염병"@ko ;
+  rdfs:subClassOf schema:InfectiousDisease .
+
+# 공통 상위 개념: 증상/전파경로/치료/합병증/백신/이상반응
+koid:SymptomConcept      a owl:Class ; rdfs:label "증상 개념"@ko      ; rdfs:subClassOf skos:Concept .
+koid:RouteConcept        a owl:Class ; rdfs:label "전파경로 개념"@ko  ; rdfs:subClassOf skos:Concept .
+koid:TreatmentConcept    a owl:Class ; rdfs:label "치료 개념"@ko      ; rdfs:subClassOf skos:Concept .
+koid:ComplicationConcept a owl:Class ; rdfs:label "합병증 개념"@ko    ; rdfs:subClassOf skos:Concept .
+koid:VaccinationConcept  a owl:Class ; rdfs:label "예방접종 개념"@ko  ; rdfs:subClassOf skos:Concept .
+koid:AdverseEventConcept a owl:Class ; rdfs:label "이상반응 개념"@ko  ; rdfs:subClassOf skos:Concept .
+koid:SymptomGroup        a owl:Class ; rdfs:label "증상 그룹"@ko      ; rdfs:subClassOf skos:Concept .
+
+# [Object Properties] 감염병 관련 서술어
+
+koid:symptom a owl:ObjectProperty ;
+  rdfs:label "증상을 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:SymptomConcept ;
+  rdfs:subPropertyOf schema:signOrSymptom .
+
+koid:transmissionRoute a owl:ObjectProperty ;
+  rdfs:label "전파경로를 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:RouteConcept .
+
+koid:treatment a owl:ObjectProperty ;
+  rdfs:label "치료법을 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:TreatmentConcept ;
+  rdfs:subPropertyOf schema:possibleTreatment .
+
+koid:complication a owl:ObjectProperty ;
+  rdfs:label "합병증을 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:ComplicationConcept .
+
+koid:vaccination a owl:ObjectProperty ;
+  rdfs:label "예방접종을 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:VaccinationConcept ;
+  rdfs:subPropertyOf schema:drug .
+
+koid:adverseEvent a owl:ObjectProperty ;
+  rdfs:label "이상반응을 가진다"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  koid:AdverseEventConcept .
+
+koid:inSymptomGroup a owl:ObjectProperty ;
+  rdfs:label "증상 그룹에 속한다"@ko ;
+  rdfs:domain koid:SymptomConcept ;
+  rdfs:range  koid:SymptomGroup ;
+  rdfs:subPropertyOf skos:broader .
+
+# [Data Properties] 감염병 관련 속성
+
+koid:classificationLevel a owl:DatatypeProperty ;
+  rdfs:label "감염병 분류 등급"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  xsd:string .
+
+koid:isolationRequired a owl:DatatypeProperty ;
+  rdfs:label "격리 필요 여부"@ko ;
+  rdfs:domain koid:InfectiousDisease ;
+  rdfs:range  xsd:boolean .
+
+
+#################################################################
+# 2. 의료기관 (Hospital) 관련 정의 (추가됨)
+#################################################################
+
+# 병원 클래스 (schema:Hospital을 상속받아 우리만의 클래스로 정의)
+koid:Hospital a owl:Class ;
+    rdfs:label "의료기관"@ko ;
+    rdfs:subClassOf schema:Hospital .
+
+# 중환자실 병상 수
+koid:icuBeds a owl:DatatypeProperty ;
+    rdfs:label "중환자실 병상 수"@ko ;
+    rdfs:domain koid:Hospital ;
+    rdfs:range xsd:int .
+
+# 격리 병상 수
+koid:isolationBeds a owl:DatatypeProperty ;
+    rdfs:label "격리 병상 수"@ko ;
+    rdfs:domain koid:Hospital ;
+    rdfs:range xsd:int .
+
+
+#################################################################
+# 3. 통계 (Statistics) 관련 정의 (추가됨)
+#################################################################
+
+# 통계 관측 클래스 (통계 수치 하나하나를 의미)
+koid:StatisticalObservation a owl:Class ;
+    rdfs:label "통계 관측값"@ko ;
+    rdfs:subClassOf schema:Observation .
+
+# 환자 수 (정수)
+koid:caseCount a owl:DatatypeProperty ;
+    rdfs:label "확진자 수"@ko ;
+    rdfs:domain koid:StatisticalObservation ;
+    rdfs:range xsd:int .
+
+# 발생률 (소수점 실수)
+koid:incidenceRate a owl:DatatypeProperty ;
+    rdfs:label "발생률 (10만명당)"@ko ;
+    rdfs:domain koid:StatisticalObservation ;
+    rdfs:range xsd:double .
+
+
+#################################################################
+# 4. 공통 연결 고리 정의 (추가됨)
+#################################################################
+
+# 지역 코드 (병원과 통계를 연결하는 핵심 Key)
+# 병원에도 쓰이고 통계에도 쓰이므로 domain을 owl:Thing으로 넓게 잡음
+koid:regionCode a owl:DatatypeProperty ;
+    rdfs:label "행정구역 코드"@ko ;
+    rdfs:domain owl:Thing ; 
+    rdfs:range xsd:string .
+
+# 치료 가능 여부 (병원 -> 감염병 연결용, 추후 확장 대비)
+koid:canTreat a owl:ObjectProperty ;
+    rdfs:label "치료 가능"@ko ;
+    rdfs:domain koid:Hospital ;
+    rdfs:range koid:InfectiousDisease .

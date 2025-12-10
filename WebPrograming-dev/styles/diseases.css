@@ -501,13 +501,102 @@ header h1 {
     .detail-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .modal-content {
         padding: 20px;
         margin: 20px auto;
     }
-    
+
     header h1 {
         font-size: 1.8em;
     }
+}
+
+/* 원문 전체보기 토글 스타일 */
+.full-description-toggle {
+    margin-top: 15px;
+}
+
+.toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.toggle-btn:hover {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-icon {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.full-description-content {
+    margin-top: 15px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    border-left: 4px solid #2563eb;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.desc-section {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.desc-section:last-child {
+    margin-bottom: 0;
+}
+
+.desc-question {
+    display: block;
+    color: #1e40af;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 20px 0 0 0;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #2563eb;
+    border-radius: 0 8px 8px 0;
+}
+
+.desc-answer {
+    color: #475569;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.desc-section:last-child .desc-answer {
+    border-bottom: none;
+}
+
+.desc-section strong {
+    display: block;
+    color: #1e40af;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.desc-section p,
+.desc-section span {
+    color: #475569;
+    font-size: 0.95rem;
 }

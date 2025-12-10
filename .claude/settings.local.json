@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(python:*)",
+      "Bash(head:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Add multi-symptom support with synonyms and update disease details\n\n- Backend: Add transmissionRoutes, treatments, adverseEvents to API\n- Frontend: Update disease modal to show all detail sections\n- Symptom mapping: Support multiple symptoms per disease with altLabels\n- Hospital button: Show only for grade 1-2 diseases\n- Scripts: Add automated symptom mapping from OpenRefine CSV\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Add statistics page integration and gitignore\n\n- Statistics page backend/frontend integration\n- Add .gitignore for Python cache files and Windows special files\n- Remove problematic ''nul'' file\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(taskkill:*)",
+      "Bash(exit 0)",
+      "Bash(wmic process where \"commandline like ''''%%uvicorn%%'''' and commandline like ''''%%8001%%''''\" get processid)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 2 /nobreak)",
+      "Bash(del \"c:\\Users\\DongHyeok\\Desktop\\2-2\\WebPrograming\\project\\WebPrograming-dev\\hospitals-detail.html\")"
+    ]
+  }
+}

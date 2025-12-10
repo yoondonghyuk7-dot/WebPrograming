@@ -5,142 +5,1502 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f8fafc;
     color: #333;
     line-height: 1.6;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
+/* 헤더 섹션 */
+.header-section {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.pattern-blob {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pattern-blob-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -50px;
+}
+
+.pattern-blob-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -80px;
+    left: 10%;
+}
+
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header-title-section {
     color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    border: 2px solid white;
+    border: none;
     padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .back-btn:hover {
     background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
 }
 
-header h1 {
+.header-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.header-subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* 컨테이너 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* 전체 화면 지도 컨테이너 */
+.fullscreen-map-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 140px);
+    min-height: 500px;
+}
+
+.fullscreen-map {
+    width: 100%;
+    height: 100%;
+}
+
+/* 지도 내부 컨트롤 오버레이 */
+.map-controls-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+}
+
+.map-control-panel {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-item label {
+    font-size: 0.85em;
+    color: #374151;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.control-item select {
+    padding: 8px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    background: white;
+}
+
+.control-item select:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.map-control-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
+}
+
+.map-control-btn:hover {
+    background: #f9fafb;
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.map-control-btn.active {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #b45309;
+}
+
+/* 검색 상태 오버레이 */
+.map-status-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.map-status-overlay p {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 기존 지도 섹션 (하위 호환) */
+.map-section {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.map-header {
+    margin-bottom: 20px;
+}
+
+.map-header h2 {
+    font-size: 1.4em;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.location-text {
+    color: #6b7280;
+    font-size: 0.95em;
+}
+
+.map-container {
+    width: 100%;
+    height: calc(100vh - 300px);
+    min-height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.map-container.large {
+    height: calc(100vh - 250px);
+    min-height: 600px;
+}
+
+.search-status {
+    color: #6b7280;
+    font-size: 0.95em;
+}
+
+.map-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.action-btn.secondary {
+    background: white;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.action-btn.secondary:hover {
+    background: #f9fafb;
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.btn-icon {
+    font-size: 1.2em;
+}
+
+/* 통계 섹션 */
+.stats-section {
+    margin-bottom: 30px;
+}
+
+.stats-section h2 {
+    font-size: 1.4em;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.stat-value {
     font-size: 2em;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.95em;
+    color: #6b7280;
+}
+
+/* 미리보기 섹션 */
+.preview-section {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.preview-section h2 {
+    font-size: 1.4em;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.region-filter {
+    margin-bottom: 20px;
+}
+
+.region-filter select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.region-filter select:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.hospital-list {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.hospital-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hospital-item:hover {
+    background: #ecfdf5;
+    transform: translateX(5px);
+}
+
+.hospital-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    flex-shrink: 0;
+}
+
+.hospital-info {
     flex: 1;
 }
 
-.description-section {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.hospital-name {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 3px;
 }
 
-.description-section p {
-    font-size: 1.1em;
-    color: #666;
-    line-height: 1.8;
+.hospital-address {
+    font-size: 0.85em;
+    color: #6b7280;
 }
 
-.map-section {
+.hospital-badges {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.hospital-badge {
+    font-size: 0.75em;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.hospital-badge.isolation {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.view-all-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.view-all-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* 로딩 */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+/* 상세 페이지 스타일 */
+.detail-page .info-section {
+    margin-bottom: 20px;
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #10b981;
+}
+
+.info-icon {
+    font-size: 1.5em;
+}
+
+.info-text strong {
+    color: #065f46;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-text p {
+    color: #047857;
+    font-size: 0.9em;
+}
+
+/* 검색 옵션 섹션 */
+.search-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.legend-section {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.legend-section h3 {
-    font-size: 1.5em;
-    color: #667eea;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #667eea;
-}
-
-.legend-items {
-    display: flex;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     flex-wrap: wrap;
+}
+
+.search-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.control-group label {
+    font-size: 0.85em;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.control-group select {
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.control-group select:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.search-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.search-actions .action-btn {
+    padding: 10px 18px;
+    font-size: 0.95em;
+}
+
+.search-actions .action-btn.active {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #b45309;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.option-group label {
+    font-size: 0.85em;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.option-group select {
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.option-group select:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.my-location-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: auto;
+}
+
+.my-location-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.full-map {
+    margin-bottom: 30px;
+}
+
+.map-legend {
+    display: flex;
     gap: 30px;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 10px;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-size: 1.1em;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #4b5563;
 }
 
 .legend-marker {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.legend-marker.current-location {
-    background: #ff4444;
-    width: 40px;
-    height: 40px;
+.legend-marker.my-location {
+    background: #ef4444;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.legend-marker.hospital-marker {
+    background: #10b981;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 검색 결과 */
+.results-section {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.results-header h2 {
+    font-size: 1.4em;
+    color: #1f2937;
+}
+
+.results-count {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.hospital-cards {
+    display: grid;
+    gap: 20px;
+}
+
+.hospital-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hospital-card:hover {
+    background: #ecfdf5;
+    border-color: #10b981;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+}
+
+.hospital-card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    flex-shrink: 0;
+}
+
+.hospital-card-content {
+    flex: 1;
+}
+
+.hospital-card-name {
+    font-size: 1.15em;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.hospital-card-type {
+    font-size: 0.85em;
+    color: #10b981;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.hospital-card-address {
+    font-size: 0.9em;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.hospital-card-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hospital-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85em;
+    color: #4b5563;
+}
+
+.hospital-stat-icon {
+    font-size: 1.1em;
+}
+
+.hospital-card-distance {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.distance-value {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.distance-label {
+    font-size: 0.8em;
+    color: #6b7280;
+}
+
+/* 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close:hover {
+    color: #ddd;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    padding: 30px;
+    color: white;
     position: relative;
 }
 
-.legend-marker.current-location::after {
-    content: '';
+.modal-hospital-name {
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.modal-hospital-type {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-section {
+    margin-bottom: 25px;
+}
+
+.modal-section h3 {
+    font-size: 1.1em;
+    color: #1f2937;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-section p {
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.modal-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.modal-stat {
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-stat-value {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.modal-stat-label {
+    font-size: 0.85em;
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+.modal-directions-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-directions-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 현재 위치 마커 */
+.current-location-marker {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.current-location-marker .pulse-ring {
     position: absolute;
+    width: 40px;
+    height: 40px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: pulse-animation 2s infinite;
+}
+
+.current-location-marker .marker-dot {
+    position: absolute;
     width: 20px;
     height: 20px;
-    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3b82f6;
+    border: 4px solid white;
     border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
 }
 
-.legend-marker.hospital {
-    background: #4285f4;
+@keyframes pulse-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
-.legend-marker.clinic {
-    background: #34a853;
+/* 병원 마커 */
+.hospital-marker {
+    cursor: pointer;
+    text-align: center;
 }
 
-.legend-marker.isolation {
-    background: #ff9800;
+.hospital-marker .marker-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    border: 3px solid white;
 }
 
+.hospital-marker .marker-icon {
+    transform: rotate(45deg);
+    font-size: 14px;
+}
+
+.hospital-marker .marker-label {
+    background: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 4px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* 커스텀 검색 마커 */
+.custom-search-marker {
+    text-align: center;
+}
+
+.custom-search-marker .custom-marker-pin {
+    width: 40px;
+    height: 40px;
+    background: #f59e0b;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(245, 158, 11, 0.4);
+    border: 3px solid white;
+    margin: 0 auto;
+}
+
+.custom-search-marker .custom-marker-pin span {
+    transform: rotate(45deg);
+    font-size: 18px;
+}
+
+.custom-search-marker .custom-marker-label {
+    background: #f59e0b;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+/* 검색 결과 섹션 */
+.results-section {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.results-section h2 {
+    font-size: 1.4em;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.hospital-results {
+    display: grid;
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.hospital-result-card {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    background: #f9fafb;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hospital-result-card:hover {
+    background: #ecfdf5;
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.15);
+}
+
+.hospital-result-card .hospital-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.hospital-result-card .hospital-icon {
+    font-size: 1.5em;
+}
+
+.hospital-result-card .hospital-badges {
+    display: flex;
+    gap: 6px;
+}
+
+.hospital-result-card .badge {
+    font-size: 0.75em;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.hospital-result-card .badge.type {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.hospital-result-card .badge.isolation {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.hospital-result-card .hospital-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.hospital-result-card .hospital-address {
+    font-size: 0.9em;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.hospital-result-card .hospital-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hospital-result-card .distance,
+.hospital-result-card .beds {
+    font-size: 0.85em;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hospital-result-card .distance {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* 결과 없음 */
+.no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: #6b7280;
+}
+
+.no-results-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.no-results p {
+    margin-bottom: 5px;
+}
+
+/* 모달 오버레이 */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay .modal-content {
+    background-color: white;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #4b5563;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+/* 모달 병원 헤더 */
+.modal-hospital-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-hospital-icon {
+    font-size: 2.5em;
+}
+
+.modal-hospital-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.modal-badge {
+    font-size: 0.8em;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.modal-badge.type {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.modal-badge.isolation {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.modal-hospital-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+/* 모달 정보 섹션 */
+.modal-info-section {
+    margin-bottom: 25px;
+}
+
+.modal-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.modal-info-item:last-child {
+    border-bottom: none;
+}
+
+.modal-info-item .info-icon {
+    font-size: 1.3em;
+    flex-shrink: 0;
+}
+
+.modal-info-item .info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.modal-info-item .info-label {
+    font-size: 0.8em;
+    color: #9ca3af;
+}
+
+.modal-info-item .info-value {
+    font-size: 0.95em;
+    color: #374151;
+}
+
+/* 모달 병상 정보 */
+.modal-beds-section {
+    margin-bottom: 25px;
+}
+
+.modal-beds-section h3 {
+    font-size: 1.1em;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.beds-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.bed-item {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.bed-item.highlight {
+    background: #fef3c7;
+}
+
+.bed-item .bed-icon {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.bed-item .bed-label {
+    font-size: 0.8em;
+    color: #6b7280;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bed-item .bed-value {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.bed-item.highlight .bed-value {
+    color: #b45309;
+}
+
+/* 모달 액션 버튼 */
+.modal-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.modal-actions .action-btn {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+}
+
+.modal-actions .action-btn.directions {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.modal-actions .action-btn.directions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.modal-actions .action-btn.focus {
+    background: white;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.modal-actions .action-btn.focus:hover {
+    background: #f9fafb;
+    border-color: #10b981;
+    color: #10b981;
+}
+
+/* 반응형 */
 @media (max-width: 768px) {
-    .legend-items {
+    .header-title {
+        font-size: 1.6em;
+    }
+
+    /* 전체 화면 지도 모바일 */
+    .fullscreen-map-container {
+        height: calc(100vh - 200px);
+        min-height: 400px;
+    }
+
+    .map-controls-overlay {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .map-control-panel {
         flex-direction: column;
-        gap: 15px;
+        gap: 8px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .control-item {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .control-item select {
+        flex: 1;
+    }
+
+    .map-control-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .map-status-overlay p {
+        font-size: 0.8em;
+        padding: 8px 16px;
+    }
+
+    .map-container {
+        height: calc(100vh - 350px);
+        min-height: 400px;
+    }
+
+    .map-container.large {
+        height: calc(100vh - 300px);
+        min-height: 450px;
+    }
+
+    .map-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-controls {
+        flex-direction: column;
+    }
+
+    .search-actions {
+        flex-direction: column;
+    }
+
+    .search-actions .action-btn {
+        width: 100%;
+    }
+
+    .my-location-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hospital-card {
+        flex-direction: column;
+    }
+
+    .hospital-card-distance {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        min-width: auto;
+    }
+
+    .map-legend {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .beds-grid {
+        grid-template-columns: 1fr;
     }
 }
